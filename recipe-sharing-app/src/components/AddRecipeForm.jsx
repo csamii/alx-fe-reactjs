@@ -1,7 +1,6 @@
 // AddRecipeForm component
 import { useState } from 'react';
 import {useRecipeStore} from './recipeStore';
-import RecipeList from './RecipeList';
 
 const AddRecipeForm = () => {
     const addRecipe = useRecipeStore(state => state.addRecipe);
@@ -31,7 +30,6 @@ const AddRecipeForm = () => {
                 />
                 <button type="submit">Add Recipe</button>
             </form>
-            <RecipeList />
         </div>
     );
 };

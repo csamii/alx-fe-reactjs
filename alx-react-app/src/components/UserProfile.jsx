@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from "prop-types";
 const UserProfile = (props) => {
    return (
      <div>
@@ -8,4 +10,5 @@ const UserProfile = (props) => {
    );
  };
 
+ UserProfile.propTypes = {age: PropTypes.number.isRequired}
  export default UserProfile;
