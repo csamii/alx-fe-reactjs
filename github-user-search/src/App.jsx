@@ -1,4 +1,4 @@
-import Sample from "./components/Sample";
+import Search from "./components/Search";
 import {BrowserRouter, Routes, Route} from "react-router"
 
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Sample />} />
+          <Route path="/" element={<Search />} />
         </Routes>
       </BrowserRouter>
     </>
