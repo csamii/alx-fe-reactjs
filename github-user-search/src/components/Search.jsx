@@ -17,9 +17,9 @@ function Search() {
         try {
             const data = await fetchUserData(username, location, minRepos);
             setUsers(data.items || []);
-        if ((data.items || []).length === 0) {
-            setError("Looks like we can't find any matching users.");
-        }
+            if ((data.items || []).length === 0) {
+                setError("Looks like we can't find any matching users.");
+            }
         } catch (err) {
             setError("Something went wrong while fetching users.");
         } finally {
@@ -63,21 +63,21 @@ function Search() {
 
         <div className="mt-6">
             {loading && <p>Loading...</p>}
-            {error && <p className="text-red-500">{error}</p>}
+            <p className="text-red-500">{error}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            {users.map((user) => (
-                <div key={user.id} className="border p-4 rounded shadow">
-                <img
-                    src={user.avatar_url}
-                    alt={user.login}
-                    className="w-16 h-16 rounded-full mb-2"
-                />
-                <h2 className="font-bold">{user.login}</h2>
-                <Link to={userData.html_url} target="_blank">
-                    View GitHub Profile
-                </Link>
-                </div>
-            ))}
+                {users.map((user) => (
+                    <div key={user.id} className="border p-4 rounded shadow">
+                    <img
+                        src={user.avatar_url}
+                        alt={user.login}
+                        className="w-16 h-16 rounded-full mb-2"
+                    />
+                    <h2 className="font-bold">{user.login}</h2>
+                    <Link to={user.html_url} target="_blank">
+                        View GitHub Profile
+                    </Link>
+                    </div>
+                ))}
             </div>
         </div>
     </div>
