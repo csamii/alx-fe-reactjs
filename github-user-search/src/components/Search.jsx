@@ -28,7 +28,7 @@ const Search = () => {
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <label for="username">GitHub Username</label>
+            <label htmlFor="username">GitHub Username</label>
             <input
             type="text"
             value={username}
