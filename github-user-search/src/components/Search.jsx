@@ -6,24 +6,24 @@ const Search = () => {
     const [username, setUsername] = useState('');
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState("");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         if (!username.trim()) return;
-
-            setLoading(true);
-            setError(false);
-            setUserData(null);
-            try {
-                const data = await fetchUserData(username);
-                setUserData(data);
-            } catch (err) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        };
+        setLoading(true);
+        setError("");
+        setUserData(null);
+        try {
+            const data = await fetchUserData(username);
+            console.log(data)
+            setUserData(data || []);
+        } catch (err) {
+            setError("Looks like we can't find the user");
+        } finally {
+            setLoading(false);
+        }
+    };
 
   return (
     <div>
@@ -39,9 +39,7 @@ const Search = () => {
         </form>
 
         {loading && <p>Loading...</p>}
-        {error && (
-            <p>Looks like we can't find the user</p>
-        )}
+        <p>{error}</p>
 
         {userData && (
             <div>
