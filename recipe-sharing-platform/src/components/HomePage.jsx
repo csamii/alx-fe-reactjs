@@ -5,6 +5,7 @@ import Button from './ui/Button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/Card";
 import { useState, useEffect } from "react";
 import data from "../data.json";
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -166,9 +167,11 @@ const Header = () => {
                                 </div>
                             </div>
                             <div className="">
-                                <Button 
-                                    className="w-full px-8 py-3 text-sm bg-myBlack border-white text-white hover:bg-myBlack2 hover:text-white"
-                                    title="View Recipe" />
+                                <Link to={`/recipe/${recipe.id}`}>
+                                    <Button 
+                                        className="w-full px-8 py-3 text-sm bg-myBlack border-white text-white hover:bg-myBlack2 hover:text-white"
+                                        title="View Recipe" />
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>
