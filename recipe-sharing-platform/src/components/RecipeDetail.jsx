@@ -76,7 +76,7 @@ const RecipeDetail = () => {
           </div>
 
           {/* Ingredients */}
-          <Card>
+          <Card className='shadow-md'>
             <CardHeader>
               <CardTitle>Ingredients</CardTitle>
             </CardHeader>
@@ -100,7 +100,7 @@ const RecipeDetail = () => {
           </Card>
 
           {/* Instructions */}
-          <Card>
+          <Card className='shadow-md'>
             <CardHeader>
               <CardTitle>Instructions</CardTitle>
             </CardHeader>
