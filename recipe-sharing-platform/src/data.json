@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/150",
+    "cookTime": "25 mins",
+    "servings": 4,
+    "difficulty": "Easy",
+    "ingredients": [
+      "400g fettuccine pasta",
+      "1 cup heavy cream",
+      "6 cloves garlic, minced",
+      "1/2 cup grated Parmesan cheese",
+      "2 tbsp butter",
+      "Fresh basil leaves",
+      "Salt and pepper to taste",
+      "2 tbsp olive oil"
+    ],
+    "instructions": [
+      "Cook pasta according to package directions until al dente.",
+      "In a large pan, heat olive oil and butter over medium heat.",
+      "Add minced garlic and sauté until fragrant, about 2 minutes.",
+      "Pour in heavy cream and simmer for 3-4 minutes.",
+      "Add cooked pasta to the sauce and toss to combine.",
+      "Remove from heat, add Parmesan cheese and fresh basil.",
+      "Season with salt and pepper, serve immediately."
+    ],
+    "tags": ["Italian", "Comfort Food", "Quick"],
+    "author": "Chef Maria",
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://via.placeholder.com/150",
+    "cookTime": "45 mins",
+    "servings": 8,
+    "difficulty": "Medium",
+    "ingredients": [
+      "2 cups all-purpose flour",
+      "3/4 cup cocoa powder",
+      "2 cups sugar",
+      "2 tsp baking soda",
+      "1 tsp baking powder",
+      "1 tsp salt",
+      "2 large eggs",
+      "1 cup buttermilk",
+      "1/2 cup vegetable oil",
+      "2 tsp vanilla extract"
+    ],
+    "instructions": [
+      "Preheat oven to 350°F (175°C). Grease two 9-inch round pans.",
+      "In a large bowl, whisk together flour, cocoa powder, sugar, baking soda, baking powder, and salt.",
+      "In another bowl, beat eggs, then add buttermilk, oil, and vanilla.",
+      "Gradually mix wet ingredients into dry ingredients until smooth.",
+      "Divide batter between prepared pans.",
+      "Bake for 30-35 minutes or until a toothpick comes out clean.",
+      "Cool completely before frosting."
+    ],
+    "tags": ["Dessert", "Chocolate", "Celebration"],
+    "author": "Baker Sarah",
+    "rating": 4.9
+  },
+  {
+    "id": 3,
+    "title": "Fresh Garden Salad",
+    "summary": "A vibrant and healthy salad packed with fresh vegetables and a zesty homemade dressing.",
+    "image": "https://images.unsplash.com/photo-1606757819934-d61a9f7279d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMHNhbGFkJTIwaGVhbHRoeXxlbnwxfHx8fDE3NTUyODgxNjl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "cookTime": "15 mins",
+    "servings": 4,
+    "difficulty": "Easy",
+    "ingredients": [
+      "4 cups mixed greens",
+      "1 cucumber, sliced",
+      "2 tomatoes, chopped",
+      "1 red onion, thinly sliced",
+      "1 bell pepper, diced",
+      "1/4 cup olive oil",
+      "2 tbsp balsamic vinegar",
+      "1 tbsp honey",
+      "1 tsp Dijon mustard",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Wash and dry all vegetables thoroughly.",
+      "In a large bowl, combine mixed greens, cucumber, tomatoes, onion, and bell pepper.",
+      "In a small bowl, whisk together olive oil, balsamic vinegar, honey, and Dijon mustard.",
+      "Season dressing with salt and pepper.",
+      "Drizzle dressing over salad just before serving.",
+      "Toss gently to combine and serve immediately."
+    ],
+    "tags": ["Healthy", "Vegetarian", "Fresh"],
+    "author": "Chef Alex",
+    "rating": 4.6
+  },
+  {
+    "id": 4,
+    "title": "Grilled Chicken Dinner",
+    "summary": "Perfectly seasoned grilled chicken with herbs and spices, accompanied by roasted vegetables.",
+    "image": "https://images.unsplash.com/photo-1496074620649-6b1b02e5c1c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmlsbGVkJTIwY2hpY2tlbiUyMGRpbm5lcnxlbnwxfHx8fDE3NTUyOTIzMjl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "cookTime": "35 mins",
+    "servings": 4,
+    "difficulty": "Medium",
+    "ingredients": [
+      "4 chicken breasts",
+      "2 tbsp olive oil",
+      "2 tsp paprika",
+      "1 tsp garlic powder",
+      "1 tsp onion powder",
+      "1 tsp dried oregano",
+      "1 tsp dried thyme",
+      "Salt and pepper to taste",
+      "2 bell peppers, sliced",
+      "1 zucchini, sliced",
+      "1 red onion, sliced"
+    ],
+    "instructions": [
+      "Preheat grill to medium-high heat.",
+      "In a small bowl, mix paprika, garlic powder, onion powder, oregano, thyme, salt, and pepper.",
+      "Rub chicken breasts with olive oil and season with spice mixture.",
+      "Grill chicken for 6-7 minutes per side until internal temperature reaches 165°F.",
+      "Meanwhile, toss vegetables with remaining olive oil and seasonings.",
+      "Grill vegetables for 10-12 minutes, turning occasionally.",
+      "Let chicken rest for 5 minutes before serving with grilled vegetables."
+    ],
+    "tags": ["Protein", "Healthy", "Grilled"],
+    "author": "Chef Mike",
+    "rating": 4.7
+  }
+]
