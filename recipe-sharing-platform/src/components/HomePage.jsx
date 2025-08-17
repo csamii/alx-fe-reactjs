@@ -132,7 +132,7 @@ const Header = () => {
                     Hand-picked favorites from our community
                     </p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="p-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {recipes.slice(0, 3).map((recipe) => (
                     <Card key={recipe.id} className="cursor-pointer hover:shadow-lg transition-shadow">
                         <CardHeader className="p-0">
