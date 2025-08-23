@@ -14,7 +14,7 @@ const Header = () => {
     useEffect(() => {
         setRecipes(data);
     }, []);
-    console.log(recipes)
+
     const cookingTips = [
         {
             icon: <ChefHat className="h-6 w-6 text-black" />,
@@ -37,14 +37,14 @@ const Header = () => {
         {
             name: "Bruce Wayne",
             role: "Home Chef",
-            content: "RecipeShare has transformed my cooking! I've discovered so many amazing recipes that my family loves. The community is incredibly supportive and helpful.",
+            content: "RecipeBox has transformed my cooking! I've discovered so many amazing recipes that my family loves. The community is incredibly supportive and helpful.",
             rating: 5
         },
         {
             name: "Wally West",
             role: "Food Blogger",
             content: "As someone who writes about food, I'm impressed by the quality of recipes here. Every dish I've tried has been perfectly tested and delicious.",
-            rating: 5
+            rating: 4
         },
         {
             name: "Ichimaru Gin",
@@ -87,7 +87,7 @@ const Header = () => {
         <section className="py-16 bg-muted/30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">Why Choose RecipeShare?</h2>
+                    <h2 className="text-3xl font-bold mb-4">Why Choose RecipeBox?</h2>
                     <p className="text-lg text-muted-foreground">
                     The perfect platform for food enthusiasts of all levels
                     </p>
@@ -214,25 +214,25 @@ const Header = () => {
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4">What Our Community Says</h2>
                     <p className="text-lg text-muted-foreground">
-                    Real stories from home cooks who love RecipeShare
+                    Real stories from home cooks who love RecipeBox
                     </p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {testimonials.map((testimonial, index) => (
                     <Card key={index} className="p-6">
                         <CardContent className="p-0">
-                        <div className="flex items-center gap-1 mb-4">
-                            {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                            ))}
-                        </div>
-                        <p className="text-muted-foreground mb-4 italic">
-                            "{testimonial.content}"
-                        </p>
-                        <div>
-                            <p className="font-medium">{testimonial.name}</p>
-                            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                        </div>
+                            <div className="flex items-center gap-1 mb-4">
+                                {[...Array(testimonial.rating)].map((_, i) => (
+                                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                                ))}
+                            </div>
+                            <p className="text-muted-foreground mb-4 italic">
+                                "{testimonial.content}"
+                            </p>
+                            <div>
+                                <p className="font-medium">{testimonial.name}</p>
+                                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                            </div>
                         </CardContent>
                     </Card>
                     ))}
