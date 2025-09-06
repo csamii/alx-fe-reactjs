@@ -7,6 +7,12 @@ const RegistrationForm = () => {
         password: ''
     });
     const [errors, setErrors] = useState({});
+    const { username, email, password } = formData;
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({ ...prevState, [name]: value }));
+    };
 
     const validateForm = () => {
         const newErrors = {};
@@ -19,15 +25,23 @@ const RegistrationForm = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({ ...prevState, [name]: value }));
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
             console.log(formData);
+            try {
+                const response = await fetch("https://jsonplaceholder.typicode.com/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+                });
+
+                const result = await response.json();
+                console.log("User registered:", result);
+                alert("User registered successfully!");
+            } catch (err) {
+                console.error("Registration failed:", err);
+            }
         }
     };
 
