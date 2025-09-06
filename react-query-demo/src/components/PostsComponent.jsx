@@ -1,15 +1,17 @@
 import { useQuery, useQueryClient } from 'react-query';
 
+const fetchPosts = async () => {
+    const res = fetch('https://jsonplaceholder.typicode.com/posts')
+    if (!res.ok) throw new Error('Failed to fetch posts')
+    return res.json()
+}
+
 
 const PostsComponent = () => {
     const queryClient = useQueryClient();
     const { isLoading, error, data, isError, isFetching, refetch } = useQuery({
         queryKey: ['posts'],
-        queryFn: () =>
-            fetch('https://jsonplaceholder.typicode.com/posts').then((res) => {
-            if (!res.ok) throw new Error('Failed to fetch posts')
-            return res.json()
-        }),
+        queryFn: fetchPosts,
         staleTime: 60 * 1000,       // refresh for 1 minute
         cacheTime: 5 * 60 * 1000,   // keep unused cache for 5 minutes
         keepPreviousData: true,     // show old data while fetching new
