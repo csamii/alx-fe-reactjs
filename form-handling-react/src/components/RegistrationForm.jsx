@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const RegistrationForm = () => {
     const [formData, setFormData] = useState({ 
-        name: '',
+        username: '',
         email: '',
         password: ''
     });
@@ -17,7 +17,7 @@ const RegistrationForm = () => {
     const validateForm = () => {
         const newErrors = {};
 
-        if (!formData.name.trim()) newErrors.name = "Name is required";
+        if (!formData.username.trim()) newErrors.username = "Name is required";
         if (!formData.email.trim()) newErrors.email = "Email is required";
         if (!formData.password.trim()) newErrors.password = "Password is required";
 
@@ -31,9 +31,9 @@ const RegistrationForm = () => {
             console.log(formData);
             try {
                 const response = await fetch("https://jsonplaceholder.typicode.com/users", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData),
                 });
 
                 const result = await response.json();
