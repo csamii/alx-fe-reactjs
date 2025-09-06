@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import Profile from './components/Profile';
+import Profile from './Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
 
