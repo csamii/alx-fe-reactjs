@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from 'react-query';
 
 const fetchPosts = async () => {
-    const res = fetch('https://jsonplaceholder.typicode.com/posts')
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
     if (!res.ok) throw new Error('Failed to fetch posts')
     return res.json()
 }
