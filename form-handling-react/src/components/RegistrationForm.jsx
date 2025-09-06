@@ -18,8 +18,8 @@ const RegistrationForm = () => {
         const newErrors = {};
 
         if (!username.trim()) newErrors.username = "Name is required";
-        if (!email.trim()) newErrors.email = "Email is required";
-        if (!password.trim()) newErrors.password = "Password is required";
+        if (!email) newErrors.email = "Email is required";
+        if (!password) newErrors.password = "Password is required";
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
