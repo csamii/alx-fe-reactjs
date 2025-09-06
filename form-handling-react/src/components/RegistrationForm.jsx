@@ -50,7 +50,7 @@ const RegistrationForm = () => {
             <input
                 type="text"
                 name="name"
-                value={name}
+                value={username}
                 onChange={handleChange}
             />
             {errors.name && (
