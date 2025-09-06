@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 
 
 const PostsComponent = () => {
-    const { isPending, error, data, isError } = useQuery({
+    const { isLoading, error, data, isError } = useQuery({
         queryKey: ['posts'],
         queryFn: () =>
             fetch('https://jsonplaceholder.typicode.com/posts').then((res) => {
@@ -16,7 +16,7 @@ const PostsComponent = () => {
         }),
     })
 
-    if (isPending) return <p style={{ color: 'green' }}>Loading posts…</p>
+    if (isLoading) return <p style={{ color: 'green' }}>Loading posts…</p>
     if (isError) return <p style={{ color: 'crimson' }}>Error: {error.message}</p>
     console.log(data)
     if (!data) return <p>No posts found</p>
