@@ -4,7 +4,7 @@ import Profile from './Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
 import Blog from './components/Blog';
-import Post from './components/BlogPost';
+import BlogPost from './components/BlogPost';
 // import ProtectedRoute from './routes/ProtectedRoute';
 
 
@@ -17,7 +17,7 @@ export default function App() {
 
             {/* Blog Routes */}
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<Post />} />git 
+            <Route path="/blog/:id" element={<BlogPost />} />git 
 
             {/* Login */}
             {/* <Route path="/login" element={<Login />} /> */}
