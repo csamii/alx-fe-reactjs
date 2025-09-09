@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import Profile from './Profile';
+import Profile from './components/Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
 import Blog from './components/Blog';
@@ -34,8 +34,6 @@ export default function App() {
                 </Route>
               </Route>
 
-              {/* Not Found */}
-              {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
           </AuthProvider>
         </div>
