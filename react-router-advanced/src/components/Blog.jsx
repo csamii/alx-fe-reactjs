@@ -7,8 +7,8 @@ export default function Blog() {
       <h1>Blog</h1>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {posts.map(p => (
-          <li key={p.id} style={{ marginBottom: 8 }}>
-            <Link to={`/blog/${p.id}`}>#{p.id} — {p.title}</Link>
+          <li key={p.postId} style={{ marginBottom: 8 }}>
+            <Link to={`/blog/${p.postId}`}>#{p.postId} — {p.title}</Link>
           </li>
         ))}
       </ul>
