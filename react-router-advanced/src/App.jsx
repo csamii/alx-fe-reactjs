@@ -3,6 +3,10 @@ import HomePage from './components/HomePage';
 import Profile from './Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
+import Blog from './components/Blog';
+import Post from './components/Post';
+// import ProtectedRoute from './routes/ProtectedRoute';
+
 
 export default function App() {
   return (
@@ -11,11 +15,24 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
 
-            <Route path="/profile" element={<Profile />}>
-              <Route index element={<ProfileDetails />} />
-              <Route path="details" element={<ProfileDetails />} />
-              <Route path="settings" element={<ProfileSettings />} />
-            </Route>
+            {/* Blog Routes */}
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:postId" element={<Post />} />
+
+            {/* Login */}
+            {/* <Route path="/login" element={<Login />} /> */}
+
+            {/* Protected + Nested */}
+            {/* <Route element={<ProtectedRoute />}> */}
+              <Route path="/profile" element={<Profile />}>
+                <Route index element={<ProfileDetails />} />
+                <Route path="details" element={<ProfileDetails />} />
+                <Route path="settings" element={<ProfileSettings />} />
+              </Route>
+            {/* </Route> */}
+
+            {/* Not Found */}
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </div>
       </BrowserRouter>
