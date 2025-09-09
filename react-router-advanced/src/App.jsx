@@ -5,35 +5,39 @@ import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
-// import ProtectedRoute from './routes/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext';
+import Login from './components/Login';
 
 
 export default function App() {
   return (
     <BrowserRouter>
         <div style={{ fontFamily: 'system-ui, Arial', padding: 16 }}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
+          <AuthProvider>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
 
-            {/* Blog Routes */}
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />git 
+              {/* Blog Routes */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />git 
 
-            {/* Login */}
-            {/* <Route path="/login" element={<Login />} /> */}
+              {/* Login */}
+              <Route path="/login" element={<Login />} />
 
-            {/* Protected + Nested */}
-            {/* <Route element={<ProtectedRoute />}> */}
-              <Route path="/profile" element={<Profile />}>
-                <Route index element={<ProfileDetails />} />
-                <Route path="details" element={<ProfileDetails />} />
-                <Route path="settings" element={<ProfileSettings />} />
+              {/* Protected + Nested */}
+              <Route element={<ProtectedRoute />}>
+                <Route path="/profile" element={<Profile />}>
+                  <Route index element={<ProfileDetails />} />
+                  <Route path="details" element={<ProfileDetails />} />
+                  <Route path="settings" element={<ProfileSettings />} />
+                </Route>
               </Route>
-            {/* </Route> */}
 
-            {/* Not Found */}
-            {/* <Route path="*" element={<NotFound />} /> */}
-          </Routes>
+              {/* Not Found */}
+              {/* <Route path="*" element={<NotFound />} /> */}
+            </Routes>
+          </AuthProvider>
         </div>
       </BrowserRouter>
   );
