@@ -93,10 +93,10 @@ export default function Results() {
             <div className={`text-6xl mb-2 ${getScoreColor(scorePercentage)}`}>
               {score}
             </div>
-            <div className="text-2xl text-muted-foreground mb-4">
+            <div className="text-2xl text-slate-800 mb-4">
               out of {questions.length}
             </div>
-            <Badge variant={getScoreBadgeVariant(scorePercentage)} className="text-lg px-4 py-1">
+            <Badge variant={getScoreBadgeVariant(scorePercentage)} className="text-3xl px-4 py-1">
               {scorePercentage}%
             </Badge>
           </CardContent>
@@ -105,20 +105,16 @@ export default function Results() {
         {correctionRounds > 0 && (
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
+              <CardTitle className="flex items-center space-x-2 mb-4">
                 <RotateCcw className="w-5 h-5" />
-                <span>Correction Summary</span>
+                <span className='font-bold'>Practice Summary</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span>Questions corrected:</span>
-                  <span>{correctedQuestions}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>Correction rounds completed:</span>
-                  <span>{correctionRounds}</span>
+                  <span>Practice rounds completed:</span>
+                  <span>{correctionRounds - 1}</span>
                 </div>
                 <div className="flex items-center space-x-2 text-green-600">
                   <CheckCircle className="w-4 h-4" />
@@ -131,7 +127,7 @@ export default function Results() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Quiz Details</CardTitle>
+            <CardTitle className='font-bold mb-4'>Quiz Details</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -149,29 +145,38 @@ export default function Results() {
                 <span>Question type:</span>
                 <span className="capitalize">{settings.type}</span>
               </div>
-              <div className="flex justify-between items-center">
+              {/* <div className="flex justify-between items-center">
                 <span>Total time:</span>
                 <span>{Math.ceil((Date.now() - startTime) / 1000 / 60)} minutes</span>
-              </div>
+              </div> */}
             </div>
           </CardContent>
         </Card>
 
-        <div className="flex flex-col space-y-3">
-          <Button onClick={() => navigate('/leaderboard')}>
-            <Trophy className="w-4 h-4 mr-2" />
-            View Leaderboard
-          </Button>
-          
-          <Button onClick={handleNewQuiz}>
-            <RotateCcw className="w-4 h-4 mr-2" />
-            Take Another Quiz
-          </Button>
-          
-          <Button onClick={handleHome}>
-            <Home className="w-4 h-4 mr-2" />
-            Back to Home
-          </Button>
+        <div className="flex flex-col space-y-3 items-center">
+            <Button 
+                onClick={() => navigate('/leaderboard')}
+                className='bg-black text-white hover:bg-slate-700 px-12'
+            >
+                <Trophy className="w-4 h-4 mr-2" />
+                View Leaderboard
+            </Button>
+            
+            <Button 
+                onClick={handleNewQuiz}
+                className='border hover:bg-slate-400 hover:text-white px-12'
+            >
+                <RotateCcw className="w-4 h-4 mr-2" />
+                Take Another Quiz
+            </Button>
+            
+            <Button 
+                className='border hover:bg-slate-400 hover:text-white px-12'
+                onClick={handleHome}
+            >
+                <Home className="w-4 h-4 mr-2" />
+                Back to Home
+            </Button>
         </div>
       </div>
     </div>
