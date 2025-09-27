@@ -10,10 +10,10 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="text-center mb-12">
         <div className="flex items-center justify-center mb-4">
-          <Brain className="w-12 h-12 text-primary mr-3" />
-          <h1 className="text-4xl">QuizMaster</h1>
+          <Brain className="w-12 h-12 text-green-500 mr-3" />
+          <h1 className="text-4xl">QuizQuest</h1>
         </div>
-        <p className="text-muted-foreground text-lg">
+        <p className="text-muted-foreground text-sm">
           Test your knowledge across multiple categories with timed questions and instant corrections
         </p>
       </div>
@@ -21,11 +21,11 @@ export default function Home() {
       <div className="grid md:grid-cols-3 gap-6 mb-12">
         <Card>
           <CardHeader className="text-center">
-            <Target className="w-8 h-8 text-primary mx-auto mb-2" />
-            <CardTitle>Multiple Categories</CardTitle>
+            <Target className="w-8 h-8 text-destructive mx-auto mb-2" />
+            <CardTitle className='font-bold'>Multiple Categories</CardTitle>
           </CardHeader>
           <CardContent>
-            <CardDescription>
+            <CardDescription className='text-sm'>
               Choose from General Knowledge, Science, Mathematics, Sports, History, and Mythology
             </CardDescription>
           </CardContent>
@@ -33,11 +33,11 @@ export default function Home() {
 
         <Card>
           <CardHeader className="text-center">
-            <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-            <CardTitle>Timed Challenges</CardTitle>
+            <Clock className="w-8 h-8 text-black mx-auto mb-2" />
+            <CardTitle className='font-bold'>Timed Challenges</CardTitle>
           </CardHeader>
           <CardContent>
-            <CardDescription>
+            <CardDescription className='text-sm'>
               60 seconds per question with automatic progression and missed question tracking
             </CardDescription>
           </CardContent>
@@ -45,11 +45,11 @@ export default function Home() {
 
         <Card>
           <CardHeader className="text-center">
-            <Trophy className="w-8 h-8 text-primary mx-auto mb-2" />
-            <CardTitle>Smart Corrections</CardTitle>
+            <Trophy className="w-8 h-8 text-amber-500 mx-auto mb-2" />
+            <CardTitle className='font-bold'>Smart Corrections</CardTitle>
           </CardHeader>
           <CardContent>
-            <CardDescription>
+            <CardDescription className='text-sm'>
               Practice missed questions until perfect with unlimited correction rounds
             </CardDescription>
           </CardContent>

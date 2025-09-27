@@ -102,7 +102,7 @@ export default function Quiz() {
     // Show feedback for 2 seconds before enabling next question
     setTimeout(() => {
       answerQuestion(selectedAnswer, timeSpent);
-    }, 1000);
+    }, 200);
   };
 
   const handleManualNext = () => {
@@ -150,8 +150,8 @@ export default function Quiz() {
           </div>
           <div className="flex items-center space-x-2">
             <Clock className="size-3" />
-            <span className={`${timeRemaining <= 10 ? 'text-red-500' : ''}`}>
-              {String(Math.floor(timeRemaining / 60)).padStart(2, '0')}:
+            <span className={`${timeRemaining <= 10 ? 'text-red-500' : ''} font-bold`}>
+              {/* {String(Math.floor(timeRemaining / 60)).padStart(2, '0')}: */}
               {String(timeRemaining % 60).padStart(2, '0')}
             </span>
           </div>
@@ -180,12 +180,12 @@ export default function Quiz() {
               if (showFeedback) {
                 // Show feedback colors
                 if (answer === currentQuestion.correct_answer) {
-                  buttonClassName += " !bg-green-500 !hover:bg-green-600 !text-white !border-green-500";
+                  buttonClassName += " !bg-myGreen !hover:bg-green-600 !text-white !border-green-500";
                 } else if (
                   answer === submittedAnswer &&
                   submittedAnswer !== currentQuestion.correct_answer
                 ) {
-                  buttonClassName += " !bg-red-500 !hover:bg-red-600 !text-white !border-red-500";
+                  buttonClassName += " !bg-myRed !hover:bg-red-600 !text-white !border-red-500";
                 }
               } else if (selectedAnswer === answer) {
                 buttonClassName += " bg-black text-white"; // selected state
@@ -216,7 +216,7 @@ export default function Quiz() {
 
       <div className="flex justify-between items-center">
         <div className="text-sm text-muted-foreground">
-          Score: {score}/{currentQuestionIndex + 1}
+          {/* Score: {score}/{currentQuestionIndex + 1} */}
         </div>
         {showFeedback ? (
           <Button 

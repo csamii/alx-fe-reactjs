@@ -22,7 +22,7 @@ const CATEGORIES = [
 ];
 
 // Number of Questions
-const difficultyOptions = [4, 20, 30, 40, 50];
+const difficultyOptions = [10, 20, 30, 40, 50];
 
 export default function Settings() {
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ export default function Settings() {
     const [selectedCategories, setSelectedCategories] = useState(['9']);
     const [difficulty, setDifficulty] = useState('all');
     const [type, setType] = useState('both');
-    const [numberOfQuestions, setNumberOfQuestions] = useState(4);
+    const [numberOfQuestions, setNumberOfQuestions] = useState(10);
     const [username, setUsernameLocal] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
@@ -160,8 +160,8 @@ export default function Settings() {
                     <ArrowLeft className="w-4 h-4" />
                 </Button>
                 <div className="flex items-center">
-                    <SettingsIcon className="w-6 h-6 text-primary mr-2" />
-                    <h1>Quiz Settings</h1>
+                    <SettingsIcon className="w-6 h-6 text-gray-500 mr-2" />
+                    <h1 className='font-bold'>Quiz Settings</h1>
                 </div>
             </div>
 

@@ -65,7 +65,7 @@ export default function Results() {
 
   const getScoreBadgeVariant = (percentage) => {
     if (percentage >= 80) return 'default';
-    if (percentage >= 60) return 'secondary';
+    if (percentage >= 60) return 'primary';
     return 'destructive';
   };
 

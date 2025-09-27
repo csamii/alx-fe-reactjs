@@ -6,6 +6,8 @@
       colors: {
         'destructive': '#d4183d',
         'primary': '#a1a1a1',
+        'myGreen': '#009c00',
+        'myRed': '#ff0000'
       }
     },
   },
