@@ -168,7 +168,7 @@ export default function Settings() {
             <div className="space-y-6">
                 <Card>
                     <CardHeader>
-                        <CardTitle>Personal Information</CardTitle>
+                        <CardTitle className='font-bold'>Personal Information</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-2">
@@ -185,8 +185,8 @@ export default function Settings() {
 
                 <Card>
                     <CardHeader>
-                        <CardTitle>Categories</CardTitle>
-                        <CardDescription>Select one or more categories for your quiz</CardDescription>
+                        <CardTitle className='font-bold'>Categories</CardTitle>
+                        <CardDescription className='text-sm mb-3'>Select one or more categories for your quiz</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <div className="grid grid-cols-2 gap-4">
@@ -210,7 +210,7 @@ export default function Settings() {
 
                 <Card>
                     <CardHeader>
-                        <CardTitle>Difficulty</CardTitle>
+                        <CardTitle className='font-bold mb-3'>Difficulty</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <RadioGroup value={difficulty} onValueChange={setDifficulty} name="difficulty">
@@ -224,7 +224,7 @@ export default function Settings() {
 
                 <Card>
                     <CardHeader>
-                        <CardTitle>Question Type</CardTitle>
+                        <CardTitle className='font-bold mb-3'>Question Type</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <RadioGroup value={type} onValueChange={setType} name="type">
@@ -237,7 +237,7 @@ export default function Settings() {
 
                 <Card>
                     <CardHeader>
-                        <CardTitle>Number of Questions</CardTitle>
+                        <CardTitle className='font-bold mb-3'>Number of Questions</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <Select

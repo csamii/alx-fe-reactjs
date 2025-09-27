@@ -161,11 +161,11 @@ export default function Quiz() {
 
       <Card className="mb-6">
         <CardHeader>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col md:flex-row justify-between mb-4">
             <CardTitle className="text-lg">
               {currentQuestion.question}
             </CardTitle>
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <div className="text-xs mt-4 md:flex items-center space-x-2 md:text-sm md:mt-0">
               <span className="capitalize">{currentQuestion.difficulty}</span>
               <span>•</span>
               <span className="capitalize">{currentQuestion.category}</span>

@@ -37,7 +37,7 @@ function CardDescription({ className = "", ...props }) {
 function CardContent({ className = "", ...props }) {
   return (
     <div
-      className={`px-6 [&:last-child]:pb-6 ${className}`}
+      className={`px-6 [&:last-child]:pb-2 ${className}`}
       {...props}
     />
   );
