@@ -66,7 +66,7 @@ export default function Home() {
         <div className="text-center space-y-6">
           <Button 
             onClick={() => navigate('/settings')}
-            className="px-8 py-4 text-sm bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white hover:bg-slate-500"
+            className="px-8 py-4 text-sm bg-gradient-to-r from-[#5568d9] to-[#653d91] animate-vibrate text-white hover:bg-slate-500"
           >
             Start Quiz
           </Button>
@@ -74,7 +74,7 @@ export default function Home() {
           <div>
             <Button
               onClick={() => navigate('/leaderboard')}
-              className="px-8 py-4 text-sm border border-slate-200 hover:bg-slate-500 hover:text-white"
+              className="px-8 py-4 text-sm border border-slate-200 hover:bg-slate-500 hover:text-white "
             >
               🏆 View Leaderboard
             </Button>
