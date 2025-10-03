@@ -20,8 +20,9 @@ const Footer = () => {
                         className="w-full px-4 py-3 rounded-lg text-black placeholder:text-muted-foreground"/>
                 </div>
                 <Button 
-                    className="px-8 bg-white text-black hover:bg-black hover:text-white hover:border-white"
-                    title="Subscribe Free" />
+                    className="px-8 bg-white text-black hover:bg-slate-500 hover:text-white hover:border-white"
+                    title="Subscribe Free" 
+                />
             </div>
             <p className="text-sm mt-4 opacity-75">
             ©RecipeBox 2025

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChefHat, Search } from 'lucide-react';
+import { Link } from 'react-router';
 
 // Main App component containing the Navbar
 const Navbar = () => {
@@ -11,20 +12,33 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="text-2xl font-bold text-gray-800 flex items-center">
+            {/* <a href="#" className="text-2xl font-bold text-gray-800 flex items-center"> */}
+            <Link to={`/`} className="text-2xl font-bold text-gray-800 flex items-center">
               <ChefHat className="text-orange-500 w-8 h-8 mr-2" />
               RecipeBox
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex flex-grow justify-center space-x-8">
-            <a href="#" className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300">
+            <Link 
+              to={`/`}
+              className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
+            >
               Home
-            </a>
-            <a href="#" className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300">
+            </Link>
+            <Link 
+              to={`/add_recipe`}
+              className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
+            >
+              Add Recipe
+            </Link>
+            <Link 
+              to={`/recipe_list/`}
+              className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
+            >            
               Recipes
-            </a>
+            </Link>
             <a href="#" className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300">
               About
             </a>

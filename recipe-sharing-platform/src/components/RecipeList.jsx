@@ -7,6 +7,8 @@ import { Clock, Users, Star, Search, TrendingUp, Filter, Heart } from "lucide-re
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/Tabs";
 import data from '../data.json';
 import { Link } from 'react-router-dom';
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const RecipeList = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -109,8 +111,9 @@ const RecipeList = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
 
         {/* Header */}
         <div className="text-center mb-12">
@@ -272,6 +275,7 @@ const RecipeList = () => {
           </div>
         </section>
       </div>
+      <Footer />
     </div>
   );
 }

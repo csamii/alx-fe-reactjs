@@ -72,10 +72,14 @@ const Header = () => {
                 Find a world of delicious flavors and culinary inspiration.
                 </p>
                 <div className="relative w-full max-w-lg mt-8 flex flex-col sm:flex-row gap-4 justify-center mx-auto">
-                    <Button
-                        title="Browse Recipe"
-                        className="px-8 py-3 text-lg bg-black border-white text-white hover:bg-white hover:text-black"
-                    />
+                    <Link 
+                        to={`/recipe_list/`}
+                    >
+                        <Button
+                            title="Browse Recipe"
+                            className="px-8 py-3 text-lg bg-black border-white text-white hover:bg-white hover:text-black"
+                        />
+                    </Link>
                     <Button
                         title="Learn More"
                         className="px-8 py-3 text-lg bg-black border-white text-white hover:bg-white hover:text-black"
@@ -178,9 +182,13 @@ const Header = () => {
                     ))}
                 </div>
                 <div className="text-center mt-12">
-                    <Button
-                        className="px-8 py-3 text-lg bg-[#343333] text-white hover:bg-black hover:text-white"
-                        title="View All Recipes"/>
+                    <Link 
+                        to={`/recipe_list/`}
+                    >
+                        <Button
+                            className="px-8 py-3 text-lg bg-[#343333] text-white hover:bg-black hover:text-white"
+                            title="View All Recipes"/>
+                    </Link>
                 </div>
             </div>
         </section>
