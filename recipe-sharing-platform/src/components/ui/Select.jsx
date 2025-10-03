@@ -27,9 +27,4 @@ function Select({ className = "", children, ...props }) {
   );
 }
 
-export default Select;
-
-
-export {
-  Select
-};
+export { Select };
