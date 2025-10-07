@@ -80,10 +80,14 @@ const Header = () => {
                             className="px-8 py-3 text-lg bg-black border-white text-white hover:bg-white hover:text-black"
                         />
                     </Link>
-                    <Button
-                        title="Learn More"
-                        className="px-8 py-3 text-lg bg-black border-white text-white hover:bg-white hover:text-black"
-                    />
+                    <Link 
+                        to={`/blog/`}
+                    >
+                        <Button
+                            title="Learn More"
+                            className="px-8 py-3 text-lg bg-black border-white text-white hover:bg-white hover:text-black"
+                        />
+                    </Link>
                 </div>
             </div>
         </section>
@@ -91,36 +95,36 @@ const Header = () => {
         <section className="py-16 bg-muted/30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">Why Choose RecipeBox?</h2>
-                    <p className="text-lg text-muted-foreground">
+                    <h2 className="text-3xl font-bold mb-4 max-sm:text-2xl">Why Choose RecipeBox?</h2>
+                    <p className="text-lg text-slate-900 max-sm:text-sm">
                     The perfect platform for food enthusiasts of all levels
                     </p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     <div className="text-center">
-                        <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Users className="h-8 w-8 text-primary" />
+                        <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <Users className="h-8 w-8 text-white" />
                         </div>
-                        <h3 className="text-xl font-medium mb-2">Community Driven</h3>
-                        <p className="text-muted-foreground">
+                        <h3 className="text-xl font-medium mb-2 font-mono font-bolder">Community Driven</h3>
+                        <p className="text-slate-900 max-sm:text-sm">
                             Discover recipes shared by passionate home cooks from around the world
                         </p>
                     </div>
                     <div className="text-center">
-                        <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                             <Clock className="h-8 w-8 text-primary" />
                         </div>
-                        <h3 className="text-xl font-medium mb-2">Quick & Easy</h3>
-                        <p className="text-muted-foreground">
+                        <h3 className="text-xl font-medium mb-2 font-mono font-bolder">Quick & Easy</h3>
+                        <p className="text-slate-900 max-sm:text-sm">
                             Find recipes that fit your schedule, from 15-minute meals to weekend projects
                         </p>
                     </div>
                     <div className="text-center">
-                        <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                             <Star className="h-8 w-8 text-primary" />
                         </div>
-                        <h3 className="text-xl font-medium mb-2">Highly Rated</h3>
-                        <p className="text-muted-foreground">
+                        <h3 className="text-xl font-medium mb-2 font-mono font-bolder">Highly Rated</h3>
+                        <p className="text-slate-900 max-sm:text-sm">
                             Every recipe is tested and rated by our community for guaranteed deliciousness
                         </p>
                     </div>
@@ -132,8 +136,8 @@ const Header = () => {
         <section className="py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">Featured Recipes</h2>
-                    <p className="text-lg text-muted-foreground">
+                    <h2 className="text-3xl font-bold mb-4 max-sm:text-lg">Featured Recipes</h2>
+                    <p className="text-lg max-sm:text-[15px]">
                     Hand-picked favorites from our community
                     </p>
                 </div>
@@ -157,7 +161,7 @@ const Header = () => {
                                 </div>
                             </div>
                             <CardTitle className="mb-2 font-semibold">{recipe.title}</CardTitle>
-                            <CardDescription className="mb-4 text-slate-500">
+                            <CardDescription className="mb-4 text-slate-700 max-sm:text-sm">
                                 {recipe.summary}
                             </CardDescription>
                             <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
@@ -197,8 +201,8 @@ const Header = () => {
         <section className="py-16 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">Pro Cooking Tips</h2>
-                    <p className="text-lg text-muted-foreground">
+                    <h2 className="text-3xl font-bold mb-4 max-sm:text-lg">Pro Cooking Tips</h2>
+                    <p className="text-lg max-sm:text-[15px]">
                     Level up your cooking game with expert advice from our community
                     </p>
                 </div>
@@ -209,7 +213,7 @@ const Header = () => {
                         {tip.icon}
                         </div>
                         <h3 className="text-xl font-medium mb-3">{tip.title}</h3>
-                        <p className="text-muted-foreground">{tip.tip}</p>
+                        <p className="text-lg max-sm:text-[15px]">{tip.tip}</p>
                     </Card>
                     ))}
                 </div>
@@ -220,21 +224,21 @@ const Header = () => {
         <section className="py-16 bg-muted/30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">What Our Community Says</h2>
-                    <p className="text-lg text-muted-foreground">
+                    <h2 className="text-3xl font-bold mb-4 max-sm:text-lg">What Our Community Says</h2>
+                    <p className="text-lg text-lg max-sm:text-[15px]">
                     Real stories from home cooks who love RecipeBox
                     </p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {testimonials.map((testimonial, index) => (
-                    <Card key={index} className="p-6">
+                    <Card key={index} className="px-2 py-6 sm:p-6">
                         <CardContent className="p-0">
                             <div className="flex items-center gap-1 mb-4">
                                 {[...Array(testimonial.rating)].map((_, i) => (
                                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                                 ))}
                             </div>
-                            <p className="text-muted-foreground mb-4 italic">
+                            <p className="max-sm:text-[14px] mb-4 italic">
                                 "{testimonial.content}"
                             </p>
                             <div>

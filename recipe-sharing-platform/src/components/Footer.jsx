@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="flex items-center justify-center gap-2 mb-4">
                 <ChefHat className="h-12 w-12" />
             </div>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-xl mb-8 opacity-90 max-sm:text-sm">
                 Join 2,000+ food lovers and get hand-picked recipes, cooking tips, and seasonal collections 
                 delivered to your inbox every Tuesday.
             </p>
@@ -20,7 +20,7 @@ const Footer = () => {
                         className="w-full px-4 py-3 rounded-lg text-black placeholder:text-muted-foreground"/>
                 </div>
                 <Button 
-                    className="px-8 bg-white text-black hover:bg-slate-500 hover:text-white hover:border-white"
+                    className="mx-auto px-8 bg-white text-black hover:bg-slate-500 hover:text-white hover:border-white"
                     title="Subscribe Free" 
                 />
             </div>
