@@ -79,10 +79,29 @@ const Navbar = () => {
       {/* Mobile menu, show/hide based on menu state */}
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+          {/* <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
           <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Recipes</a>
           <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">About</a>
-        </div>
+          */}
+          <Link 
+              to={`/`}
+              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+              Home
+            </Link>
+            <Link 
+              to={`/add_recipe`}
+              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+              Add Recipe
+            </Link>
+            <Link 
+              to={`/recipe_list/`}
+              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">            
+              Recipes
+            </Link>
+            <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+              About
+            </a>
+          </div>
       </div>
     </nav>
   );

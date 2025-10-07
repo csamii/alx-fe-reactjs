@@ -8,6 +8,7 @@ import { Select } from "./ui/Select";
 import { Badge } from "./ui/Badge";
 import { Alert, AlertDescription } from "./ui/Alert";
 import { Plus, X, Upload, Save, AlertCircle, ChefHat, Image as ImageIcon, List, Tag } from "lucide-react";
+import { Link } from "react-router";
 
 
 
@@ -157,6 +158,14 @@ const  AddRecipeForm = () => {
 
   return (
     <div className="min-h-screen bg-background py-8">
+      <div className="flex justify-between items-center mb-6 max-sm:px-6">
+        <Link to="/">
+          <Button
+            className="pl-0"
+            title="Back to Home"
+          />
+        </Link>
+      </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
           <div>

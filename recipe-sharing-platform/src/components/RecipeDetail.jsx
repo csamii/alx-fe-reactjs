@@ -57,7 +57,7 @@ const RecipeDetail = () => {
   ).sort(() => Math.random() - 0.5).slice(0, 2);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Back Button and Actions */}
         <div className="flex justify-between items-center mb-6">
@@ -69,7 +69,7 @@ const RecipeDetail = () => {
           </Link>
         </div>
       </div>
-      <div className="grid lg:grid-cols-3 gap-8 px-24 mb-12">
+      <div className="grid lg:grid-cols-3 gap-8 px-24 max-sm:px-[12px] mb-12">
         {/* Main Recipe Content */}
         <div className="lg:col-span-2 space-y-8">
           {/* Recipe Header */}
@@ -244,15 +244,15 @@ const RecipeDetail = () => {
               <CardTitle>Save This Recipe</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Button className="w-full bg-black text-white p-2 hover:bg-primary">
+              <Button className="w-full bg-black text-white p-2 hover:bg-slate-700">
                 <Heart className="h-4 w-4 mr-2" />
                 Add to Favorites
               </Button>
-              <Button className="w-full bg-black text-white p-2 hover:bg-primary">
+              <Button className="w-full bg-black text-white p-2 hover:bg-slate-700">
                 <Bookmark className="h-4 w-4 mr-2" />
                 Save to Collection
               </Button>
-              <Button className="w-full bg-black text-white p-2 hover:bg-primary">
+              <Button className="w-full bg-black text-white p-2 hover:bg-slate-700">
                 <Share2 className="h-4 w-4 mr-2" />
                 Share Recipe
               </Button>
@@ -321,7 +321,7 @@ const RecipeDetail = () => {
               Write Review
             </Button>
             <Button className="bg-slate-900 text-white hover:bg-slate-500">
-              View More Recipes
+              <Link to={"/recipe_list/"}>View More Recipes</Link>
             </Button>
           </div>
         </div>
