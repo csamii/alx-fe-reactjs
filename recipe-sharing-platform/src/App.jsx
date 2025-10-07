@@ -3,6 +3,7 @@ import HomePage from './components/HomePage';
 import RecipeDetail from './components/RecipeDetail';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeList from './components/RecipeList';
+import { About } from './components/About';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/recipe_list" element={<RecipeList />} />
         <Route path="/add_recipe" element={<AddRecipeForm />} />
         <Route path="/recipe/:id" element={<RecipeDetail />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );

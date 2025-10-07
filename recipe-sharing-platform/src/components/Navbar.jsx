@@ -39,9 +39,11 @@ const Navbar = () => {
             >            
               Recipes
             </Link>
-            <a href="#" className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300">
+            <Link 
+              to={`/recipe_list/`}
+              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
               About
-            </a>
+            </Link>
           </div>
 
           {/* User Actions & Mobile Menu Button */}
@@ -98,9 +100,11 @@ const Navbar = () => {
               className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">            
               Recipes
             </Link>
-            <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+            <Link 
+              to={`/about/`}
+              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
               About
-            </a>
+            </Link>
           </div>
       </div>
     </nav>
