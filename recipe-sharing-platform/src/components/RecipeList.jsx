@@ -15,6 +15,8 @@ const RecipeList = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("all");
   const [selectedDietary, setSelectedDietary] = useState("all");
 
+  const difficulties = ["all", "Easy", "Medium", "Hard"];
+
   const dietaryFilters = [
     { id: "all", label: "All Recipes" },
     { id: "vegetarian", label: "Vegetarian" },
@@ -139,28 +141,29 @@ const RecipeList = () => {
           {/* Filters */}
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
             <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4 text-muted-foreground" />
+              <Filter className="h-4 w-4 text-amber-700" />
               <span className="text-sm font-medium">Filters:</span>
             </div>
 
             <div className="flex gap-2 flex-wrap justify-center items-center">
               <span className="text-sm text-muted-foreground">Difficulty:</span>
-                {["all", "Easy", "Medium", "Hard"].map((level) => (
+                {difficulties.map((level) => (
                     <Button
-                    key={level}
-                    className={`border-2 ${
-                        selectedDifficulty === level
-                        ? "bg-slate-800 text-white border-slate-800"
-                        : "hover:bg-slate-200"
-                    }`}
-                    onClick={() => setSelectedDifficulty(level)}
+                      key={level}
+                      className={`border-2 ${
+                          selectedDifficulty === level
+                          ? "bg-orange-500 text-white border-orange-800"
+                          : "hover:bg-orange-200"
+                      }`}
+                      onClick={() => setSelectedDifficulty(level)}
                     >
                     {level}
                     </Button>
                 ))}
             </div>
           </div>
-
+          
+          {/* Dietary */}
           <div className="flex gap-2 flex-wrap justify-center items-center">
             <span className="text-sm text-muted-foreground">Dietary:</span>
             {dietaryFilters.map((filter) => (
@@ -168,8 +171,8 @@ const RecipeList = () => {
                 key={filter.id}
                 className={`border-2 ${
                         selectedDietary === filter.id
-                        ? "bg-slate-800 text-white border-slate-800"
-                        : "hover:bg-slate-200"
+                        ? "bg-orange-500 text-white border-orange-800"
+                        : "hover:bg-orange-200"
                     }`}
                 onClick={() => setSelectedDietary(filter.id)}
               >
@@ -181,13 +184,17 @@ const RecipeList = () => {
 
         {/* Tabs */}
         <Tabs defaultValue="all" className="mb-8">
-          <TabsList className="grid w-full grid-cols-4 h-8">
+          <TabsList className="grid w-full grid-cols-3 h-8">
             <TabsTrigger value="all">All Recipes</TabsTrigger>
             <TabsTrigger value="trending">
-                <div className="flex items-center justify-center"><TrendingUp className="h-4 w-4 mr-1" /> Trending</div></TabsTrigger>
+              <div className="flex items-center justify-center">
+                <TrendingUp className="h-4 w-4 mr-1" /> Trending
+              </div>
+            </TabsTrigger>
             <TabsTrigger value="recent">Recent</TabsTrigger>
-            <TabsTrigger value="favorites">
-                <div className="flex items-center justify-center"><Heart className="h-4 w-4 mr-1" /> Favorites</div></TabsTrigger>
+            {/* <TabsTrigger value="favorites">
+              <div className="flex items-center justify-center"><Heart className="h-4 w-4 mr-1" /> Favorites</div>
+            </TabsTrigger> */}
           </TabsList>
 
           <TabsContent value="all" className="mt-8">
@@ -238,7 +245,7 @@ const RecipeList = () => {
             <RecipeGrid recipesToShow={recentRecipes} />
           </TabsContent>
 
-          <TabsContent value="favorites" className="mt-8">
+          {/* <TabsContent value="favorites" className="mt-8">
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-2">
                 <Heart className="h-5 w-5 text-red-500 fill-red-500" />
@@ -247,7 +254,7 @@ const RecipeList = () => {
               <p className="text-muted-foreground">The highest-rated recipes loved by our community</p>
             </div>
             <RecipeGrid recipesToShow={data.filter((r) => r.rating >= 4.7)} />
-          </TabsContent>
+          </TabsContent> */}
         </Tabs>
 
         {/* Stats */}

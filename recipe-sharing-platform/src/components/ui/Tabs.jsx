@@ -19,7 +19,7 @@ function Tabs({ defaultValue, children, className = "" }) {
 
 function TabsList({ children, className = "", activeTab, setActiveTab }) {
   return (
-    <div className={`bg-gray-100 text-gray-600 inline-flex h-9 w-fit items-center justify-center rounded-xl p-1 ${className}`}>
+    <div className={`bg-orange-100 text-black inline-flex h-9 w-fit items-center justify-center rounded-xl p-1 ${className}`}>
       {Array.isArray(children)
         ? children.map((child) =>
             <TabsTrigger key={child.key} {...child.props} activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -35,7 +35,7 @@ function TabsTrigger({ value, children, activeTab, setActiveTab }) {
     <button
       onClick={() => setActiveTab(value)}
       className={`px-3 py-1 text-sm font-medium rounded-xl transition
-        ${isActive ? "bg-white text-black shadow" : "text-gray-500"}
+        ${isActive ? "bg-orange-500 text-white shadow" : "text-gray-500"}
       `}
     >
       {children}

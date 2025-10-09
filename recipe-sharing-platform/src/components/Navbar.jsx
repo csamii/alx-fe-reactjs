@@ -44,6 +44,7 @@ const Navbar = () => {
               className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
               About
             </Link>
+            
           </div>
 
           {/* User Actions & Mobile Menu Button */}

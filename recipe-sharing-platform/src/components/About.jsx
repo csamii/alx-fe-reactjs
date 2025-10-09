@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/Card";
 import Button from "./ui/Button";
 import { Badge } from "./ui/Badge";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 // import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { Heart, Users, Clock, Star, ChefHat, Globe, Award, Calendar, MapPin, Mail } from "lucide-react";
@@ -118,6 +119,7 @@ export function About({ onPageChange }) {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-muted/50 to-background py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

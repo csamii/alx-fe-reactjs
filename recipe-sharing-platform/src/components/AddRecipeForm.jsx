@@ -158,7 +158,7 @@ const  AddRecipeForm = () => {
 
   return (
     <div className="min-h-screen bg-background py-8">
-      <div className="flex justify-between items-center mb-6 max-sm:px-6">
+      <div className="flex justify-between items-center mb-6 ml-6 max-sm:px-6">
         <Link to="/">
           <Button
             className="pl-0"

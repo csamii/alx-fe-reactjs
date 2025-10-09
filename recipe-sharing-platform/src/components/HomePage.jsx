@@ -17,17 +17,17 @@ const Header = () => {
 
     const cookingTips = [
         {
-            icon: <ChefHat className="h-6 w-6 text-black" />,
+            icon: <ChefHat className="h-6 w-6 text-white" />,
             title: "Setting Things Up",
             tip: "Always prep all your ingredients before you start cooking. It makes the process smoother and more enjoyable."
         },
         {
-            icon: <Lightbulb className="h-6 w-6 text-black" />,
+            icon: <Lightbulb className="h-6 w-6 text-white" />,
             title: "Taste as You Go",
             tip: "Season throughout the cooking process, not just at the end. This builds layers of flavor in your dishes."
         },
         {
-            icon: <Award className="h-6 w-6 text-black" />,
+            icon: <Award className="h-6 w-6 text-white" />,
             title: "Quality Ingredients",
             tip: "Use the best ingredients you can afford. Fresh herbs and good quality oils make a significant difference."
         }
@@ -112,7 +112,7 @@ const Header = () => {
                     </div>
                     <div className="text-center">
                         <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Clock className="h-8 w-8 text-primary" />
+                            <Clock className="h-8 w-8 text-white" />
                         </div>
                         <h3 className="text-xl font-medium mb-2 font-mono font-bolder">Quick & Easy</h3>
                         <p className="text-slate-900 max-sm:text-sm">
@@ -121,7 +121,7 @@ const Header = () => {
                     </div>
                     <div className="text-center">
                         <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Star className="h-8 w-8 text-primary" />
+                            <Star className="h-8 w-8 text-white" />
                         </div>
                         <h3 className="text-xl font-medium mb-2 font-mono font-bolder">Highly Rated</h3>
                         <p className="text-slate-900 max-sm:text-sm">
@@ -209,7 +209,7 @@ const Header = () => {
                 <div className="grid md:grid-cols-3 gap-8">
                     {cookingTips.map((tip, index) => (
                     <Card key={index} className="text-center p-6">
-                        <div className="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="bg-black  w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         {tip.icon}
                         </div>
                         <h3 className="text-xl font-medium mb-3">{tip.title}</h3>
