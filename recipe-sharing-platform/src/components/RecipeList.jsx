@@ -31,7 +31,7 @@ const RecipeList = () => {
   const filteredRecipes = data.filter((recipe) => {
     const matchesSearch =
       recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      recipe.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      recipe.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
       recipe.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
 
     const matchesDifficulty =
