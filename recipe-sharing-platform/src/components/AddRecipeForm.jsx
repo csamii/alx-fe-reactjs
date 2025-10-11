@@ -138,7 +138,11 @@ const  AddRecipeForm = () => {
 
     if (validateForm()) {
       const recipes = JSON.parse(localStorage.getItem("recipes")) || [];
-      const updatedRecipes = [...recipes, formData];
+      const newRecipe = {
+        ...formData,
+        id: Date.now(),
+      };
+      const updatedRecipes = [...recipes, newRecipe];
       localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
       setFormData({
         title: "",
