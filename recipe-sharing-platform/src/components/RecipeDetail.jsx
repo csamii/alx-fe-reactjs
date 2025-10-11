@@ -15,8 +15,9 @@ const RecipeDetail = () => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    const recipeList = data.find(item => item.id === parseInt(id));
-    setRecipe(recipeList);
+    const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+    const foundRecipe = storedRecipes.find(item => item.id === parseInt(id));
+    setRecipe(foundRecipe);
   }, [id]);
 
   if (!recipe) return <p className="p-4 text-red text-lg">Recipe not found.</p>;
@@ -63,11 +64,13 @@ const RecipeDetail = () => {
   };
   const isFavorite = favorites.some((fav) => fav.id === recipe.id);
 
-  const relatedRecipes = data.filter(
+  const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+  const allRecipes = [...data, ...storedRecipes];
+  const relatedRecipes = allRecipes.filter(
     (r) =>
       r.id !== recipe.id &&
       r.tags.some((tag) => recipe.tags.includes(tag)),
-  ).sort(() => Math.random() - 0.5).slice(0, 2);
+  ).sort(() => Math.random() - 0.5).slice(0, 1);
 
   return (
     <div className="min-h-screen">
@@ -119,7 +122,7 @@ const RecipeDetail = () => {
               {recipe.title}
             </h1>
             <p className="text-lg text-muted-foreground mb-4">
-              {recipe.description}
+              {recipe.summary}
             </p>
             <div className="flex flex-wrap gap-2 mb-4">
                 {recipe.tags.map((tag) => (

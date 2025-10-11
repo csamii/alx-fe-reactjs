@@ -15,7 +15,7 @@ import { Link } from "react-router";
 const  AddRecipeForm = () => {
   const [formData, setFormData] = useState({
     title: "",
-    description: "",
+    summary: "",
     image: "",
     cookTime: "",
     servings: "",
@@ -40,7 +40,7 @@ const  AddRecipeForm = () => {
     const newErrors = {};
 
     if (!formData.title.trim()) newErrors.title = "Recipe title is required";
-    if (!formData.description.trim()) newErrors.description = "Recipe description is required";
+    if (!formData.summary.trim()) newErrors.summary = "Recipe summary is required";
     if (!formData.cookTime.trim()) newErrors.cookTime = "Cook time is required";
     if (!formData.servings.trim()) newErrors.servings = "Number of servings is required";
     if (!formData.difficulty) newErrors.difficulty = "Difficulty level is required";
@@ -216,17 +216,17 @@ const  AddRecipeForm = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="description">Description *</Label>
+                  <Label htmlFor="summary">Summary *</Label>
                   <Textarea
-                    id="description"
-                    value={formData.description}
-                    onChange={(e) => handleInputChange("description", e.target.value)}
+                    id="summary"
+                    value={formData.summary}
+                    onChange={(e) => handleInputChange("summary", e.target.value)}
                     placeholder="Describe your recipe and what makes it special..."
                     rows={3}
-                    className={errors.description ? "border-red-500" : ""}
+                    className={errors.summary ? "border-red-500" : ""}
                   />
-                  {errors.description && (
-                    <p className="text-sm text-red-500 mt-1">{errors.description}</p>
+                  {errors.summary && (
+                    <p className="text-sm text-red-500 mt-1">{errors.summary}</p>
                   )}
                 </div>
 
