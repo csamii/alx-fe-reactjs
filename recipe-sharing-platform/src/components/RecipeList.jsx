@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/Card";
 import Button from './ui/Button';
 import { Input } from "./ui/Input";
@@ -14,6 +14,21 @@ const RecipeList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState("all");
   const [selectedDietary, setSelectedDietary] = useState("all");
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    // 1️⃣ Check if localStorage already has recipes
+    const storedRecipes = JSON.parse(localStorage.getItem("recipes"));
+
+    if (storedRecipes && storedRecipes.length > 0) {
+      // Load from localStorage
+      setRecipes(storedRecipes);
+    } else {
+      // 2️⃣ If not found, load from data.json and save it
+      localStorage.setItem("recipes", JSON.stringify(data));
+      setRecipes(data);
+    }
+  }, []);
 
   const difficulties = ["all", "Easy", "Medium", "Hard"];
 
@@ -25,10 +40,10 @@ const RecipeList = () => {
     { id: "comfort", label: "Comfort Food" }
   ];
 
-  const trendingRecipes = data.slice(0, 2);
-  const recentRecipes = data.slice(2, 4);
+  const trendingRecipes = recipes.slice(0, 2);
+  const recentRecipes = recipes.slice(2, 4);
 
-  const filteredRecipes = data.filter((recipe) => {
+  const filteredRecipes = recipes.filter((recipe) => {
     const matchesSearch =
       recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       recipe.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||

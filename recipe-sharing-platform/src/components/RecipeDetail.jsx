@@ -12,6 +12,7 @@ import Footer from './Footer';
 const RecipeDetail = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const recipeList = data.find(item => item.id === parseInt(id));
@@ -49,6 +50,18 @@ const RecipeDetail = () => {
       helpful: 31,
     },
   ];
+
+  const favoriteRecipe = (recipe) => {
+    const isFavorite = favorites.some((fav) => fav.id === recipe.id);
+    if (isFavorite) {
+      // Remove from favorites
+      setFavorites(favorites.filter((fav) => fav.id !== recipe.id));
+    } else {
+      // Add to favorites
+      setFavorites([...favorites, recipe]);
+    }
+  };
+  const isFavorite = favorites.some((fav) => fav.id === recipe.id);
 
   const relatedRecipes = data.filter(
     (r) =>
@@ -244,9 +257,15 @@ const RecipeDetail = () => {
               <CardTitle>Save This Recipe</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Button className="w-full bg-black text-white p-2 hover:bg-slate-700">
-                <Heart className="h-4 w-4 mr-2" />
-                Add to Favorites
+              <Button 
+                className="w-full bg-black text-white p-2 hover:bg-slate-700"
+                onClick={() => favoriteRecipe(recipe)}>
+                  <Heart
+                    className={`h-4 w-4 mr-2 transition-transform ${
+                      isFavorite ? "fill-current text-red-500 scale-110" : ""
+                    }`}
+                  />
+                  {isFavorite ? "Remove Favorite" : "Add to Favorites"}
               </Button>
               <Button className="w-full bg-black text-white p-2 hover:bg-slate-700">
                 <Bookmark className="h-4 w-4 mr-2" />
