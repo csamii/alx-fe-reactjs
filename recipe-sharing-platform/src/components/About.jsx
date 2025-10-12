@@ -3,9 +3,8 @@ import Button from "./ui/Button";
 import { Badge } from "./ui/Badge";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-// import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import { Accordion, AccordionItem } from "./ui/Accordion";
 import { Heart, Users, Clock, Star, ChefHat, Globe, Award, Calendar, MapPin, Mail } from "lucide-react";
-// import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function About({ onPageChange }) {
   const teamImage = "https://images.unsplash.com/photo-1665088127661-83aeff6104c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGluZ3JlZGllbnRzJTIwdmVnZXRhYmxlc3xlbnwxfHx8fDE3NTUzNTYzNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
@@ -380,7 +379,7 @@ export function About({ onPageChange }) {
       </section>
 
       {/* FAQ Section */}
-      {/* <section className="py-16">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
@@ -388,7 +387,18 @@ export function About({ onPageChange }) {
               Everything you need to know about RecipeBox
             </p>
           </div>
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion>
+            {faqs.map((faq, index) => (
+              <AccordionItem 
+                key={index}
+                title={faq.question}
+                className="px-4">
+                  {faq.answer}
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          {/* <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-left">
@@ -399,9 +409,9 @@ export function About({ onPageChange }) {
                 </AccordionContent>
               </AccordionItem>
             ))}
-          </Accordion>
+          </Accordion> */}
         </div>
-      </section> */}
+      </section>
 
       {/* Contact Section */}
       <section className="py-16 bg-muted/30">

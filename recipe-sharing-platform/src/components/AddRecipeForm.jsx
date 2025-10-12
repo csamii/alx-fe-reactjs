@@ -27,6 +27,7 @@ const  AddRecipeForm = () => {
 
   const [newTag, setNewTag] = useState("");
   const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(false);
 
   const difficultyOptions = ["Easy", "Medium", "Hard"];
 
@@ -155,13 +156,15 @@ const  AddRecipeForm = () => {
         ingredients: [""],
         instructions: [""],
       });
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
     } else {
       console.log("Error sending data");
     }
   };
 
   return (
-    <div className="min-h-screen bg-background py-8">
+    <div className="min-h-screen bg-slate-100 py-8">
       <div className="flex justify-between items-center mb-6 ml-6 max-sm:px-6">
         <Link to="/">
           <Button
@@ -181,10 +184,19 @@ const  AddRecipeForm = () => {
         </div>
 
         {Object.keys(errors).length > 0 && (
-          <Alert className="mb-6">
+          <Alert className="mb-6 border-red-500">
             <AlertCircle className="h-4 w-4 text-red-500" />
             <AlertDescription className="text-red-500 ml-8">
               Please fix the following errors before submitting your recipe.
+            </AlertDescription>
+          </Alert>
+        )}
+
+        {success && (
+          <Alert className="mb-6 border-green-500">
+            <AlertCircle className="h-4 w-4 text-green-500" />
+            <AlertDescription className="text-green-500 ml-8">
+              Recipe created successfully
             </AlertDescription>
           </Alert>
         )}

@@ -13,6 +13,7 @@ const RecipeDetail = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [favorites, setFavorites] = useState([]);
+  const [save, setSave] = useState([]);
 
   useEffect(() => {
     const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
@@ -62,7 +63,20 @@ const RecipeDetail = () => {
       setFavorites([...favorites, recipe]);
     }
   };
-  const isFavorite = favorites.some((fav) => fav.id === recipe.id);
+
+  const saveRecipe = (recipe) => {
+    const isSaved = save.some((s) => s.id === recipe.id);
+    if (isSaved) {
+      // Remove from favorites
+      setSave(save.filter((s) => s.id !== recipe.id));
+    } else {
+      // Add to favorites
+      setSave([...save, recipe]);
+    }
+  };
+  const isFavorite = favorites.some((f) => f.id === recipe.id);
+  const isSaved = save.some((s) => s.id === recipe.id);
+
 
   const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
   const allRecipes = [...data, ...storedRecipes];
@@ -270,9 +284,15 @@ const RecipeDetail = () => {
                   />
                   {isFavorite ? "Remove Favorite" : "Add to Favorites"}
               </Button>
-              <Button className="w-full bg-black text-white p-2 hover:bg-slate-700">
-                <Bookmark className="h-4 w-4 mr-2" />
-                Save to Collection
+              <Button 
+                className="w-full bg-black text-white p-2 hover:bg-slate-700"
+                onClick={() => saveRecipe(recipe)}>
+                  <Bookmark 
+                    className={`-4 w-4 mr-2" transition-transform ${
+                      isSaved ? "fill-current text-green-500 scale-110" : ""
+                    }`}
+                  />
+                  {isSaved ? "Saved" : "Save to Collection"}
               </Button>
               <Button className="w-full bg-black text-white p-2 hover:bg-slate-700">
                 <Share2 className="h-4 w-4 mr-2" />
