@@ -3,28 +3,29 @@ import Button from "./ui/Button";
 import { Badge } from "./ui/Badge";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Accordion, AccordionItem } from "./ui/Accordion";
-import { Heart, Users, Clock, Star, ChefHat, Globe, Award, Calendar, MapPin, Mail } from "lucide-react";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./ui/Accordion";
+import { Heart, Users,  Star, ChefHat, Globe, Award, Calendar, MapPin, Mail } from "lucide-react";
+import { Link } from "react-router";
 
-export function About({ onPageChange }) {
+export function About() {
   const teamImage = "https://images.unsplash.com/photo-1665088127661-83aeff6104c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGluZ3JlZGllbnRzJTIwdmVnZXRhYmxlc3xlbnwxfHx8fDE3NTUzNTYzNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
   
   const chefImage = "https://images.unsplash.com/photo-1678626667639-de9c676e8222?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGVmJTIwcG9ydHJhaXQlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzU1MzY0NTY5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
 
   const teamMembers = [
     {
-      name: "Sarah Chen",
+      name: "Hilda Baci",
       role: "Founder & Head Chef",
-      bio: "Former Michelin-starred restaurant chef with 15 years of culinary experience. Passionate about making gourmet cooking accessible to everyone.",
+      bio: "A professional chef with 15 years of culinary experience. Passionate about making gourmet cooking accessible to everyone.",
       image: chefImage,
-      location: "San Francisco, CA"
+      location: "Lagos, Nigeria"
     },
     {
-      name: "Marcus Rodriguez",
+      name: "Sam Smith",
       role: "Community Manager",
       bio: "Food blogger and cookbook author who believes in the power of community to inspire great cooking. Manages our recipe curation process.",
       image: chefImage,
-      location: "Austin, TX"
+      location: "PH, Nigeria"
     },
     {
       name: "Emma Thompson",
@@ -32,39 +33,6 @@ export function About({ onPageChange }) {
       bio: "Culinary school graduate specializing in healthy, family-friendly recipes. Tests every recipe to ensure perfect results in home kitchens.",
       image: chefImage,
       location: "Portland, OR"
-    }
-  ];
-
-  const timeline = [
-    {
-      year: "2019",
-      title: "The Beginning",
-      description: "Sarah started RecipeBox as a personal blog to share family recipes passed down through generations."
-    },
-    {
-      year: "2020",
-      title: "Community Growth",
-      description: "Reached 1,000 registered users and launched our first community recipe contest during the pandemic."
-    },
-    {
-      year: "2021",
-      title: "Platform Launch",
-      description: "Officially launched RecipeBox platform with user-generated content and recipe rating system."
-    },
-    {
-      year: "2022",
-      title: "Mobile Expansion",
-      description: "Released mobile app and introduced video cooking tutorials from community members."
-    },
-    {
-      year: "2023",
-      title: "Global Reach",
-      description: "Expanded to international markets and now serve over 100 countries with localized content."
-    },
-    {
-      year: "2024",
-      title: "Innovation",
-      description: "Introduced AI-powered recipe suggestions and dietary restriction filters for personalized experiences."
     }
   ];
 
@@ -161,34 +129,35 @@ export function About({ onPageChange }) {
                 Our platform removes barriers by being completely free and open to everyone. No registration 
                 required, no paywalls, just pure passion for great food and cooking.
               </p>
-              <Button onClick={() => onPageChange('recipes')} size="lg">
-                Explore Recipes
+              <Button
+                className="bg-black text-white">
+                <Link to={"/recipe_list"}>Explore Recipes</Link>
               </Button>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <Card className="text-center p-6">
-                <ChefHat className="h-8 w-8 mx-auto mb-3 text-primary" />
+                <ChefHat className="h-8 w-8 mx-auto mb-3 text-yellow-500 fill-current" />
                 <h4 className="font-medium mb-2">Expert Recipes</h4>
                 <p className="text-sm text-muted-foreground">
                   Curated by passionate home cooks
                 </p>
               </Card>
               <Card className="text-center p-6">
-                <Heart className="h-8 w-8 mx-auto mb-3 text-primary" />
+                <Heart className="h-8 w-8 mx-auto mb-3 text-red-500 fill-current" />
                 <h4 className="font-medium mb-2">Made with Love</h4>
                 <p className="text-sm text-muted-foreground">
                   Every recipe tested in real kitchens
                 </p>
               </Card>
               <Card className="text-center p-6">
-                <Globe className="h-8 w-8 mx-auto mb-3 text-primary" />
+                <Globe className="h-8 w-8 mx-auto mb-3 text-blue-500" />
                 <h4 className="font-medium mb-2">Global Cuisine</h4>
                 <p className="text-sm text-muted-foreground">
                   Flavors from around the world
                 </p>
               </Card>
               <Card className="text-center p-6">
-                <Users className="h-8 w-8 mx-auto mb-3 text-primary" />
+                <Users className="h-8 w-8 mx-auto mb-3 text-green-500 fill-current" />
                 <h4 className="font-medium mb-2">Community</h4>
                 <p className="text-sm text-muted-foreground">
                   Connect with fellow food lovers
@@ -232,34 +201,6 @@ export function About({ onPageChange }) {
                   <CardDescription>{member.bio}</CardDescription>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Journey</h2>
-            <p className="text-lg text-muted-foreground">
-              From a simple blog to a global community
-            </p>
-          </div>
-          <div className="space-y-8">
-            {timeline.map((event, index) => (
-              <div key={index} className="flex gap-4">
-                <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Calendar className="h-6 w-6 text-primary" />
-                </div>
-                <div className="flex-grow">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Badge variant="outline">{event.year}</Badge>
-                    <h3 className="text-lg font-medium">{event.title}</h3>
-                  </div>
-                  <p className="text-muted-foreground">{event.description}</p>
-                </div>
-              </div>
             ))}
           </div>
         </div>
@@ -333,7 +274,7 @@ export function About({ onPageChange }) {
             <Card>
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Heart className="h-6 w-6 text-primary" />
+                  <Heart className="h-6 w-6 text-red-500 fill-current" />
                 </div>
                 <CardTitle>Passion for Food</CardTitle>
               </CardHeader>
@@ -348,7 +289,7 @@ export function About({ onPageChange }) {
             <Card>
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-primary" />
+                  <Users className="h-6 w-6 text-green-500 fill-current" />
                 </div>
                 <CardTitle>Community First</CardTitle>
               </CardHeader>
@@ -363,7 +304,7 @@ export function About({ onPageChange }) {
             <Card>
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Star className="h-6 w-6 text-primary" />
+                  <Star className="h-6 w-6 text-yellow-500 fill-current" />
                 </div>
                 <CardTitle>Quality & Trust</CardTitle>
               </CardHeader>
@@ -387,29 +328,14 @@ export function About({ onPageChange }) {
               Everything you need to know about RecipeBox
             </p>
           </div>
-          <Accordion>
+          <Accordion className="px-4">
             {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index}
-                title={faq.question}
-                className="px-4">
-                  {faq.answer}
+              <AccordionItem key={index}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-
-          {/* <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent>
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion> */}
         </div>
       </section>
 
@@ -421,11 +347,13 @@ export function About({ onPageChange }) {
             Have questions or feedback? We'd love to hear from you!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" size="lg">
+            <Button
+              className="hover:bg-slate-500 hover:text-white border-2">
               <Mail className="h-4 w-4 mr-2" />
               Contact Support
             </Button>
-            <Button variant="outline" size="lg">
+            <Button
+              className="hover:bg-slate-500 hover:text-white border-2">
               Join Our Community
             </Button>
           </div>
