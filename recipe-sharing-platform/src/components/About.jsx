@@ -242,19 +242,19 @@ export function About() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">10K+</div>
+              <div className="text-4xl font-bold text-black mb-2">10K+</div>
               <p className="text-muted-foreground">Recipes Shared</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">50K+</div>
+              <div className="text-4xl font-bold text-black mb-2">50K+</div>
               <p className="text-muted-foreground">Happy Cooks</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">4.8★</div>
+              <div className="text-4xl font-bold text-black mb-2">4.8★</div>
               <p className="text-muted-foreground">Average Rating</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">100+</div>
+              <div className="text-4xl font-bold text-black mb-2">100+</div>
               <p className="text-muted-foreground">Countries</p>
             </div>
           </div>
