@@ -113,16 +113,16 @@ export function BlogPage() {
                     <Badge className="w-fit mb-2 bg-gradient-to-br from-orange-50 to-amber-50">
                         {post.category}
                     </Badge>
-                    <h3 className="group-hover:text-primary transition-colors">
+                    <h3 className="group-hover:text-black transition-colors font-bold">
                         {post.title}
                     </h3>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                    <p className="text-muted-foreground line-clamp-3">
+                    <p className="text-slate-600 line-clamp-3 text-sm">
                         {post.excerpt}
                     </p>
 
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-sm text-slate-600">
                         <div className="flex items-center gap-1">
                         <Clock className="h-3 w-3" />
                         <span>{post.readTime} min read</span>
