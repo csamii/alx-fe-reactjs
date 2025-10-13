@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 import { useState, useEffect } from "react";
 import data from "../data.json";
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 
 const Header = () => {
@@ -92,7 +93,13 @@ const Header = () => {
             </div>
         </section>
         {/* Features Section */}
-        <section className="py-16 bg-muted/30">
+        <motion.section 
+            className="py-16 bg-muted/30"
+            initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+            whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }} // triggers only once
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4 max-sm:text-2xl">Why Choose RecipeBox?</h2>
@@ -130,10 +137,16 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
 
         {/* Featured Recipes */}
-        <section className="py-16">
+        <motion.section 
+            className="py-16"
+            initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+            whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }} // triggers only once
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4 max-sm:text-lg">Featured Recipes</h2>
@@ -143,7 +156,14 @@ const Header = () => {
                 </div>
                 <div className="p-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {recipes.slice(0, 3).map((recipe) => (
-                    <Card key={recipe.id} className="cursor-pointer hover:shadow-lg transition-shadow">
+                    <motion.Card 
+                        key={recipe.id} 
+                        className="cursor-pointer hover:shadow-lg transition-shadow"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: recipe.id * 0.2, duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
                         <CardHeader className="p-0">
                             <div className="aspect-video relative overflow-hidden rounded-t-lg">
                                 <img
@@ -182,7 +202,7 @@ const Header = () => {
                                 </Link>
                             </div>
                         </CardContent>
-                    </Card>
+                    </motion.Card>
                     ))}
                 </div>
                 <div className="text-center mt-12">
@@ -195,10 +215,16 @@ const Header = () => {
                     </Link>
                 </div>
             </div>
-        </section>
+        </motion.section>
 
         {/* Cooking Tips */}
-        <section className="py-16 bg-background">
+        <motion.section 
+            className="py-16 bg-background"
+            initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+            whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }} // triggers only once
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4 max-sm:text-lg">Pro Cooking Tips</h2>
@@ -218,10 +244,16 @@ const Header = () => {
                     ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
 
         {/* Testimonials */}
-        <section className="py-16 bg-muted/30">
+        <motion.section 
+            className="py-16 bg-muted/30"
+            initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+            whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }} // triggers only once
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4 max-sm:text-lg">What Our Community Says</h2>
@@ -250,7 +282,7 @@ const Header = () => {
                     ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
         <Footer />
     </div>
   )

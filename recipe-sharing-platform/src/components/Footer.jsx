@@ -1,9 +1,16 @@
 import { ChefHat } from "lucide-react";
 import Button from "./ui/Button";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <section className="py-16 bg-black text-white">
+    <motion.section 
+        className="py-16 bg-black text-white"
+        initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+        whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }} // triggers only once
+    >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
                 <ChefHat className="h-12 w-12" />
@@ -28,7 +35,7 @@ const Footer = () => {
             ©RecipeBox 2025
             </p>
         </div>
-      </section>
+      </motion.section>
   )
 }
 

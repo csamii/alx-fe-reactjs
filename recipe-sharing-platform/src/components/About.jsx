@@ -143,14 +143,14 @@ export function About() {
                 </p>
               </Card>
               <Card className="text-center p-6">
-                <Heart className="h-8 w-8 mx-auto mb-3 text-red-500 fill-current" />
+                <Heart className="h-8 w-8 mx-auto mb-3 text-red-500 fill-current animate-heartbeat" />
                 <h4 className="font-medium mb-2">Made with Love</h4>
                 <p className="text-sm text-muted-foreground">
                   Every recipe tested in real kitchens
                 </p>
               </Card>
               <Card className="text-center p-6">
-                <Globe className="h-8 w-8 mx-auto mb-3 text-blue-500" />
+                <Globe className="h-8 w-8 mx-auto mb-3 text-blue-500 animate-rotate" />
                 <h4 className="font-medium mb-2">Global Cuisine</h4>
                 <p className="text-sm text-muted-foreground">
                   Flavors from around the world
@@ -274,7 +274,7 @@ export function About() {
             <Card>
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Heart className="h-6 w-6 text-red-500 fill-current" />
+                  <Heart className="h-6 w-6 text-red-500 fill-current animate-heartbeat" />
                 </div>
                 <CardTitle>Passion for Food</CardTitle>
               </CardHeader>
@@ -304,7 +304,7 @@ export function About() {
             <Card>
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Star className="h-6 w-6 text-yellow-500 fill-current" />
+                  <Star className="h-6 w-6 text-yellow-500 fill-current animate-heartbeat" />
                 </div>
                 <CardTitle>Quality & Trust</CardTitle>
               </CardHeader>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/Card";
 import Button from './ui/Button';
 import { Input } from "./ui/Input";
@@ -15,20 +15,76 @@ const RecipeList = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("all");
   const [selectedDietary, setSelectedDietary] = useState("all");
   const [recipes, setRecipes] = useState([]);
+  const [visibleRecipes, setVisibleRecipes] = useState([]); // 👈 recipes currently shown
+  const [page, setPage] = useState(1); // for pagination control
+  const recipesPerPage = 4;
+  const loadMoreRef = useRef(null);
 
   useEffect(() => {
-    // 1️⃣ Check if localStorage already has recipes
+  // 1️⃣ Check if localStorage already has recipes
     const storedRecipes = JSON.parse(localStorage.getItem("recipes"));
-
     if (storedRecipes && storedRecipes.length > 0) {
-      // Load from localStorage
       setRecipes(storedRecipes);
+      setVisibleRecipes(storedRecipes.slice(0, recipesPerPage)); // show only the first 6
     } else {
-      // 2️⃣ If not found, load from data.json and save it
       localStorage.setItem("recipes", JSON.stringify(data));
       setRecipes(data);
+      setVisibleRecipes(data.slice(0, recipesPerPage));
     }
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const target = entries[0];
+        if (target.isIntersecting) {
+          setPage((prev) => prev + 1); // move to next "page" when bottom is visible
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const end = page * recipesPerPage;
+    setVisibleRecipes(recipes.slice(0, end));
+  }, [page, recipes]);
+
+  useEffect(() => {
+    const filteredRecipes = recipes.filter((recipe) => {
+      const matchesSearch =
+        recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        recipe.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        recipe.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+
+      const matchesDifficulty =
+        selectedDifficulty === "all" || recipe.difficulty === selectedDifficulty;
+
+      let matchesDietary = true;
+      if (selectedDietary === "vegetarian") {
+        matchesDietary =
+          recipe.tags.some((tag) => tag.toLowerCase().includes("vegetarian")) ||
+          recipe.title.toLowerCase().includes("salad") ||
+          recipe.title.toLowerCase().includes("pasta");
+      } else if (selectedDietary === "healthy") {
+        matchesDietary =
+          recipe.tags.some((tag) => tag.toLowerCase().includes("healthy")) ||
+          recipe.title.toLowerCase().includes("salad") ||
+          recipe.title.toLowerCase().includes("grilled");
+      } else if (selectedDietary === "quick") {
+        matchesDietary = recipe.cookTime.includes("15") || recipe.cookTime.includes("25");
+      } else if (selectedDietary === "comfort") {
+        matchesDietary = recipe.tags.some((tag) => tag.toLowerCase().includes("comfort"));
+      }
+
+      return matchesSearch && matchesDifficulty && matchesDietary;
+    });
+    setVisibleRecipes(filteredRecipes.slice(0, page * recipesPerPage));
+  }, [recipes, searchTerm, selectedDifficulty, selectedDietary, page]);
+
 
   const difficulties = ["all", "Easy", "Medium", "Hard"];
 
@@ -218,8 +274,8 @@ const RecipeList = () => {
                 Showing {filteredRecipes.length} recipe{filteredRecipes.length !== 1 ? "s" : ""}
               </p>
             </div>
-            {filteredRecipes.length > 0 ? (
-              <RecipeGrid recipesToShow={filteredRecipes} />
+            {visibleRecipes.length > 0 ? (
+              <RecipeGrid recipesToShow={visibleRecipes} />
             ) : (
               <div className="text-center py-12">
                 <h3 className="text-xl font-medium mb-2">No recipes found</h3>
@@ -237,6 +293,9 @@ const RecipeList = () => {
                 </Button>
               </div>
             )}
+            <div ref={loadMoreRef} className="h-10 flex justify-center items-center text-gray-500">
+              Loading more recipes...
+            </div>
           </TabsContent>
 
           <TabsContent value="trending" className="mt-8">

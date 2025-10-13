@@ -21,10 +21,17 @@ module.exports = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        heartbeat: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '25%': { transform: 'scale(1.2)' },
+          '50%': { transform: 'scale(0.9)' },
+          '75%': { transform: 'scale(1.1)' },
+        },
       },
       animation: {
         vibrate: 'vibrate 0.3s linear infinite',
         rotate: 'rotate 2s linear infinite',
+        heartbeat: 'heartbeat 1s ease-in-out infinite',
       },
     },
   },

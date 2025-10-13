@@ -7,6 +7,7 @@ import { Badge } from "./ui/Badge";
 import { Card, CardContent, CardHeader } from "./ui/Card";
 import { Search, Clock, Calendar, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 
 
@@ -45,7 +46,13 @@ export function BlogPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-orange-50 to-amber-50 py-16 px-4">
+      <motion.div 
+        className="bg-gradient-to-br from-orange-50 to-amber-50 py-16 px-4"
+        initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+        whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }} // triggers only once
+    >
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl mb-4">Our Blog</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
@@ -54,9 +61,10 @@ export function BlogPage() {
             cuisines, we've got you covered.
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div 
+        className="max-w-6xl mx-auto px-4 py-12">
         {/* Search and Filter */}
         <div className="mb-8 space-y-6">
             <div className="relative">
@@ -71,7 +79,13 @@ export function BlogPage() {
             </div>
 
             {/* Category Filters */}
-            <div className="flex flex-wrap gap-2">
+            <motion.div 
+                className="flex flex-wrap gap-2"
+                initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+                whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }} // triggers only once
+            >
                 {blogCategories.map((category) => (
                     <Button
                         key={category}
@@ -84,7 +98,7 @@ export function BlogPage() {
                             {category}
                     </Button>
                 ))}
-            </div>
+            </motion.div>
         </div>
 
         {/* Blog Posts Grid */}
@@ -97,9 +111,13 @@ export function BlogPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sortedPosts.map((post) => (
-              <Card
+              <motion.Card
                 key={post.id}
                 className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
+                initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+                whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }} // triggers only once
               >
                 <Link to={`/blog/${post.id}`}>
                     <div className="aspect-video overflow-hidden bg-muted">
@@ -146,13 +164,19 @@ export function BlogPage() {
                     </div>
                     </CardContent>
                 </Link>
-              </Card>
+              </motion.Card>
             ))}
           </div>
         )}
 
         {/* Featured Topics */}
-        <div className="mt-16 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-8">
+        <motion.div 
+            className="mt-16 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-8"
+            initial={{ opacity: 0, y: 50 }}  // start hidden and slightly down
+            whileInView={{ opacity: 1, y: 0 }} // fade + slide up when in view
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }} // triggers only once
+        >
           <h2 className="mb-6">Popular Topics</h2>
           <div className="flex flex-wrap gap-2">
             {popular.map((topic) => (
@@ -165,7 +189,7 @@ export function BlogPage() {
               </Button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Newsletter Section */}
         <div className="mt-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-lg p-8 md:p-12 text-white text-center">
