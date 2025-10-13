@@ -28,6 +28,12 @@ const Navbar = () => {
               Home
             </Link>
             <Link 
+              to={`/blog/`}
+              className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
+            >            
+              Blog
+            </Link>
+            <Link 
               to={`/add_recipe`}
               className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
             >
@@ -90,6 +96,11 @@ const Navbar = () => {
               to={`/`}
               className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
               Home
+            </Link>
+            <Link 
+              to={`/blog`}
+              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+              Blog
             </Link>
             <Link 
               to={`/add_recipe`}
