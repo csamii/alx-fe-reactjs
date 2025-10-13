@@ -175,7 +175,7 @@ export function BlogPostDetail() {
           <Tag className="h-4 w-4 mt-1 text-muted-foreground" />
           <div className="flex flex-wrap gap-2">
             {post.tags.map((tag) => (
-              <Badge key={tag} variant="outline">
+              <Badge key={tag}>
                 {tag}
               </Badge>
             ))}
