@@ -17,17 +17,17 @@ const Header = () => {
 
     const cookingTips = [
         {
-            icon: <ChefHat className="h-6 w-6 text-white" />,
+            icon: <ChefHat className="h-6 w-6 text-white animate-vibrate" />,
             title: "Setting Things Up",
             tip: "Always prep all your ingredients before you start cooking. It makes the process smoother and more enjoyable."
         },
         {
-            icon: <Lightbulb className="h-6 w-6 text-white" />,
+            icon: <Lightbulb className="h-6 w-6 text-white animate-vibrate" />,
             title: "Taste as You Go",
             tip: "Season throughout the cooking process, not just at the end. This builds layers of flavor in your dishes."
         },
         {
-            icon: <Award className="h-6 w-6 text-white" />,
+            icon: <Award className="h-6 w-6 text-white animate-vibrate" />,
             title: "Quality Ingredients",
             tip: "Use the best ingredients you can afford. Fresh herbs and good quality oils make a significant difference."
         }
@@ -101,27 +101,27 @@ const Header = () => {
                     </p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
-                    <div className="text-center">
+                    <div className="text-center shadow p-8">
                         <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Users className="h-8 w-8 text-white" />
+                            <Users className="h-8 w-8 text-white animate-rotate" />
                         </div>
                         <h3 className="text-xl font-medium mb-2 font-mono font-bolder">Community Driven</h3>
                         <p className="text-slate-900 max-sm:text-sm">
                             Discover recipes shared by passionate home cooks from around the world
                         </p>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center shadow p-8">
                         <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Clock className="h-8 w-8 text-white" />
+                            <Clock className="h-8 w-8 text-white animate-rotate" />
                         </div>
                         <h3 className="text-xl font-medium mb-2 font-mono font-bolder">Quick & Easy</h3>
                         <p className="text-slate-900 max-sm:text-sm">
                             Find recipes that fit your schedule, from 15-minute meals to weekend projects
                         </p>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center shadow p-8">
                         <div className="bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Star className="h-8 w-8 text-white" />
+                            <Star className="h-8 w-8 text-white animate-rotate" />
                         </div>
                         <h3 className="text-xl font-medium mb-2 font-mono font-bolder">Highly Rated</h3>
                         <p className="text-slate-900 max-sm:text-sm">
@@ -208,7 +208,7 @@ const Header = () => {
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {cookingTips.map((tip, index) => (
-                    <Card key={index} className="text-center p-6">
+                    <Card key={index} className="text-center p-6 shadow">
                         <div className="bg-black  w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         {tip.icon}
                         </div>

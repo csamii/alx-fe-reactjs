@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChefHat, Search } from 'lucide-react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 // Main App component containing the Navbar
 const Navbar = () => {
@@ -13,43 +13,56 @@ const Navbar = () => {
           {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center">
             {/* <a href="#" className="text-2xl font-bold text-gray-800 flex items-center"> */}
-            <Link to={`/`} className="text-2xl font-bold text-gray-800 flex items-center">
+            <NavLink 
+              to={`/`} 
+              className="text-2xl font-bold text-gray-800 flex items-center">
               <ChefHat className="text-orange-500 w-8 h-8 mr-2" />
               RecipeBox
-            </Link>
+            </NavLink>
           </div>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation NavLinks */}
           <div className="hidden md:flex flex-grow justify-center space-x-8">
-            <Link 
+            <NavLink 
               to={`/`}
-              className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
             >
               Home
-            </Link>
-            <Link 
+            </NavLink>
+            <NavLink 
               to={`/blog/`}
-              className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
             >            
               Blog
-            </Link>
-            <Link 
+            </NavLink>
+            <NavLink 
               to={`/add_recipe`}
-              className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
             >
               Add Recipe
-            </Link>
-            <Link 
+            </NavLink>
+            <NavLink 
               to={`/recipe_list/`}
-              className="text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300"
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
             >            
               Recipes
-            </Link>
-            <Link 
+            </NavLink>
+            <NavLink 
               to={`/about/`}
-              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
-              About
-            </Link>
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
+            >
+                About
+            </NavLink>
 
           </div>
 
@@ -92,31 +105,45 @@ const Navbar = () => {
           <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Recipes</a>
           <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">About</a>
           */}
-          <Link 
+          <NavLink 
               to={`/`}
-              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
+            >
               Home
-            </Link>
-            <Link 
+            </NavLink>
+            <NavLink 
               to={`/blog`}
-              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
+            >
               Blog
-            </Link>
-            <Link 
+            </NavLink>
+            <NavLink 
               to={`/add_recipe`}
-              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
+            >
               Add Recipe
-            </Link>
-            <Link 
+            </NavLink>
+            <NavLink 
               to={`/recipe_list/`}
-              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">            
-              Recipes
-            </Link>
-            <Link 
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
+            >Recipes
+            </NavLink>
+            <NavLink 
               to={`/about/`}
-              className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">
+              className={({ isActive })=>`
+              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
+              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
+            >
               About
-            </Link>
+            </NavLink>
           </div>
       </div>
     </nav>

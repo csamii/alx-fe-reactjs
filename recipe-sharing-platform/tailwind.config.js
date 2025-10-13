@@ -8,7 +8,24 @@ module.exports = {
         'myBlack': '#e89a24',
         'myBlack2': '#eba742ff',
         'primary': '#a1a1a1',
-      }
+      },
+      keyframes: {
+        vibrate: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '20%': { transform: 'translateX(-2px)' },
+          '40%': { transform: 'translateX(2px)' },
+          '60%': { transform: 'translateX(-2px)' },
+          '80%': { transform: 'translateX(2px)' },
+        },
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
+      animation: {
+        vibrate: 'vibrate 0.3s linear infinite',
+        rotate: 'rotate 2s linear infinite',
+      },
     },
   },
   plugins: [],
