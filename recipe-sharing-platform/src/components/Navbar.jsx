@@ -100,50 +100,59 @@ const Navbar = () => {
 
       {/* Mobile menu, show/hide based on menu state */}
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`} id="mobile-menu">
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 h-screen bg-orange-500 text-white">
           {/* <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
           <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Recipes</a>
           <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">About</a>
           */}
-          <NavLink 
-              to={`/`}
-              className={({ isActive })=>`
-              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
-              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
-            >
-              Home
-            </NavLink>
+          <div className='border-b border-slate-500 pb-[20px] pt-[10px] mt-8'>
             <NavLink 
-              to={`/blog`}
-              className={({ isActive })=>`
-              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
-              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
-            >
-              Blog
-            </NavLink>
-            <NavLink 
-              to={`/add_recipe`}
-              className={({ isActive })=>`
-              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
-              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
-            >
-              Add Recipe
-            </NavLink>
-            <NavLink 
-              to={`/recipe_list/`}
-              className={({ isActive })=>`
-              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
-              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
-            >Recipes
-            </NavLink>
-            <NavLink 
-              to={`/about/`}
-              className={({ isActive })=>`
-              text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300
-              ${isActive ? "text-orange-500 border-b-2 border-orange-500" : ""}`}
-            >
-              About
-            </NavLink>
+                to={`/`}
+                className={`
+                text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300 text-white`}
+              >
+                Home
+              </NavLink>
+            </div>
+            <div className='border-b border-slate-500 pb-[20px] pt-[10px] mt-8'>
+              <NavLink 
+                to={`/blog`}
+                className={`
+                text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300 text-white
+                `}
+              >
+                Blog
+              </NavLink>
+            </div>
+            <div className='border-b border-slate-500 pb-[20px] pt-[10px] mt-8'>
+              <NavLink 
+                to={`/add_recipe`}
+                className={`
+                text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300 text-white
+                `}
+              >
+                Add Recipe
+              </NavLink>
+            </div>
+            <div className='border-b border-slate-500 pb-[20px] pt-[10px] mt-8'>
+              <NavLink 
+                to={`/recipe_list/`}
+                className={`
+                text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300 text-white
+                `}
+              >Recipes
+              </NavLink>
+            </div>
+            <div className='border-b border-slate-500 pb-[20px] pt-[10px] mt-8'>
+              <NavLink 
+                to={`/about/`}
+                className={`
+                text-gray-600 hover:text-orange-500 px-3 py-2 text-md font-medium transition duration-300 text-white
+                `}
+              >
+                About
+              </NavLink>
+            </div>
           </div>
       </div>
     </nav>
