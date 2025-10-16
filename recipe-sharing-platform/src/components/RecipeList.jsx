@@ -142,6 +142,13 @@ const RecipeList = () => {
   const trendingRecipes = allRecipes.slice(0, 2); 
   const recentRecipes = allRecipes.slice(2, 4);
 
+  const collectionStat = [
+    { id: "Total Recipes", number: "10,240" },
+    { id: "Average Rating", number: "4.8★" },
+    { id: "New This Week", number: "127" },
+    { id: "Recipe Views", number: "45K+" }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -298,22 +305,14 @@ const RecipeList = () => {
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-8">Recipe Collection Stats</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">10,240</div>
-                <p className="text-muted-foreground">Total Recipes</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">4.8★</div>
-                <p className="text-muted-foreground">Average Rating</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">127</div>
-                <p className="text-muted-foreground">New This Week</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">45K+</div>
-                <p className="text-muted-foreground">Recipe Views</p>
-              </div>
+              {collectionStat.map((stat) => {
+                return(
+                  <div key={stat.id}>
+                    <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
+                    <p className="text-muted-foreground">{stat.id}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>

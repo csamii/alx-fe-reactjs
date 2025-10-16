@@ -101,10 +101,6 @@ const Navbar = () => {
       {/* Mobile menu, show/hide based on menu state */}
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 h-screen bg-orange-500 text-white">
-          {/* <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
-          <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Recipes</a>
-          <a href="#" className="text-gray-800 hover:bg-orange-100 block px-3 py-2 rounded-md text-base font-medium transition duration-300">About</a>
-          */}
           <div className='border-b border-slate-500 pb-[20px] pt-[10px] mt-8'>
             <NavLink 
                 to={`/`}
