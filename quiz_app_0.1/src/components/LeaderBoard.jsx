@@ -208,7 +208,7 @@ export default function LeaderBoard() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6 }}
             >
-                <Card className="backdrop-blur-sm bg-white/95 border-white/30 shadow-2xl">
+                <Card className="backdrop-blur-sm bg-white/95 border-white/30 shadow-2xl mx-2">
                 <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                     <CardTitle className="flex items-center justify-between p-3 rounded-md">
                     <span className="flex items-center font-bold">
