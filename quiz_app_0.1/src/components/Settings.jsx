@@ -9,20 +9,26 @@ import { Select } from '../ui/Select';
 import { RadioGroup, RadioGroupItem } from '../ui/RadioGroup';
 import { Input } from '../ui/Input';
 import { ArrowLeft, Loader2, Settings as SettingsIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 
 // Names of category and category_id
 const CATEGORIES = [
-  { id: '9', name: 'General Knowledge' },
-  { id: '17', name: 'Science & Nature' },
-  { id: '19', name: 'Mathematics' },
-  { id: '21', name: 'Sports' },
-  { id: '23', name: 'History' },
-  { id: '20', name: 'Mythology' },
+    { id: '9', name: 'General Knowledge' },
+    { id: '17', name: 'Science & Nature' },
+    { id: '19', name: 'Mathematics' },
+    { id: '21', name: 'Sports' },
+    { id: '23', name: 'History' },
+    { id: '20', name: 'Mythology' },
 ];
 
 // Number of Questions
 const difficultyOptions = [10, 20, 30, 40, 50];
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 },
+};
 
 export default function Settings() {
     const navigate = useNavigate();
@@ -70,7 +76,7 @@ export default function Settings() {
                 return;
             }
 
-            if (selectedCategories.length > 4) {
+            if (selectedCategories.length > 3) {
                 alert('Please do not select more than 4 categories at once');
                 return;
             }
@@ -124,7 +130,7 @@ export default function Settings() {
             const shuffledQuestions = allQuestions.sort(() => Math.random() - 0.5).slice(0, numberOfQuestions);
 
             if (shuffledQuestions.length < numberOfQuestions) {
-                alert(`Note: Only ${shuffledQuestions.length} questions from ${shuffledQuestions.category} are available for your selected settings. Please try again with different settings.`);
+                alert(`Note: Only ${shuffledQuestions.length} questions are available from your selected settings. Please try again with different settings.`);
             }
 
             // Save Quiz Settings to Global Store
@@ -151,133 +157,185 @@ export default function Settings() {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8 max-w-2xl">
-            <div className="flex items-center mb-6">
-                <Button  
+        <motion.div
+            className="min-h-screen bg-gradient-to-r from-[#667eea] to-[#764ba2] dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-colors duration-700"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
+            <div className="container mx-auto px-4 py-12 max-w-2xl">
+                {/* Header */}
+                <div className="flex items-center mb-10">
+                <Button
                     onClick={() => navigate('/')}
-                    className="mr-4"
+                    className="mr-4 bg-black text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
                 >
                     <ArrowLeft className="w-4 h-4" />
                 </Button>
                 <div className="flex items-center">
-                    <SettingsIcon className="w-6 h-6 text-gray-500 mr-2" />
-                    <h1 className='font-bold'>Quiz Settings</h1>
+                    <SettingsIcon className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-2" />
+                    <h1 className="text-2xl font-bold">Quiz Settings</h1>
                 </div>
-            </div>
+                </div>
 
-            <div className="space-y-6">
-                <Card>
+                {/* Animated Section */}
+                <motion.div
+                className="space-y-6"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    visible: {
+                    transition: { staggerChildren: 0.1 },
+                    },
+                }}
+                >
+                {/* Personal Information */}
+                <motion.div variants={fadeUp}>
+                    <Card className="bg-white dark:bg-gray-800 shadow-lg">
                     <CardHeader>
-                        <CardTitle className='font-bold'>Personal Information</CardTitle>
+                        <CardTitle className="font-bold text-blue-600 dark:text-blue-400">
+                        Personal Information
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <div className="space-y-2">
                         <Label htmlFor="username">Username</Label>
                         <Input
-                            id="username"
-                            placeholder="Enter your username"
-                            value={username}
-                            onChange={(e) => setUsernameLocal(e.target.value)}
+                        id="username"
+                        placeholder="Enter your username"
+                        value={username}
+                        onChange={(e) => setUsernameLocal(e.target.value)}
+                        className="mt-2"
                         />
-                        </div>
                     </CardContent>
-                </Card>
+                    </Card>
+                </motion.div>
 
-                <Card>
+                {/* Categories */}
+                <motion.div variants={fadeUp}>
+                    <Card className="bg-white dark:bg-gray-800 shadow-lg">
                     <CardHeader>
-                        <CardTitle className='font-bold'>Categories</CardTitle>
-                        <CardDescription className='text-sm mb-3'>Select one or more categories for your quiz</CardDescription>
+                        <CardTitle className="font-bold text-blue-600 dark:text-blue-400">
+                        Categories
+                        </CardTitle>
+                        <CardDescription>Select one up to three categories</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <div className="grid grid-cols-2 gap-4">
-                            {CATEGORIES.map((category) => (
-                                <Checkbox
-                                    key={category.id}
-                                    id={category.id}
-                                    label={category.name}
-                                    checked={selectedCategories.includes(category.id)}
-                                    onChange={(e) =>
-                                        handleCategoryChange(category.id, e.target.checked)
-                                    }
-                                />
-                            ))}
-                            {/*<div className="mt-4">
-                                Selected IDs: {selectedCategories.join(", ") || "None"}
-                            </div>*/}
+                        {CATEGORIES.map((category) => (
+                            <Checkbox
+                                key={category.id}
+                                id={category.id}
+                                label={category.name}
+                                checked={selectedCategories.includes(category.id)}
+                                onChange={(e) =>
+                                    handleCategoryChange(category.id, e.target.checked)
+                                }
+                            />
+                        ))}
                         </div>
                     </CardContent>
-                </Card>
+                    </Card>
+                </motion.div>
 
-                <Card>
+                {/* Difficulty */}
+                <motion.div variants={fadeUp}>
+                    <Card className="bg-white dark:bg-gray-800 shadow-lg">
                     <CardHeader>
-                        <CardTitle className='font-bold mb-3'>Difficulty</CardTitle>
+                        <CardTitle className="font-bold text-blue-600 dark:text-blue-400">
+                        Difficulty
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <RadioGroup value={difficulty} onValueChange={setDifficulty} name="difficulty">
-                            <RadioGroupItem value="easy" label="Easy" />
-                            <RadioGroupItem value="medium" label="Medium" />
-                            <RadioGroupItem value="hard" label="Hard" />
-                            <RadioGroupItem value="all" label="All Difficulties" />
+                        <RadioGroup value={difficulty} onValueChange={setDifficulty}>
+                        <RadioGroupItem value="easy" label="Easy" />
+                        <RadioGroupItem value="medium" label="Medium" />
+                        <RadioGroupItem value="hard" label="Hard" />
+                        <RadioGroupItem value="all" label="All Difficulties" />
                         </RadioGroup>
                     </CardContent>
-                </Card>
+                    </Card>
+                </motion.div>
 
-                <Card>
+                {/* Question Type */}
+                <motion.div variants={fadeUp}>
+                    <Card className="bg-white dark:bg-gray-800 shadow-lg">
                     <CardHeader>
-                        <CardTitle className='font-bold mb-3'>Question Type</CardTitle>
+                        <CardTitle className="font-bold text-blue-600 dark:text-blue-400">
+                        Question Type
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <RadioGroup value={type} onValueChange={setType} name="type">
-                            <RadioGroupItem value="multiple choice" label="Multiple" />
-                            <RadioGroupItem value="true/false" label="True/False" />
-                            <RadioGroupItem value="both" label="Both Types" />
+                        <RadioGroup value={type} onValueChange={setType}>
+                        <RadioGroupItem value="multiple choice" label="Multiple Choice" />
+                        <RadioGroupItem value="true/false" label="True/False" />
+                        <RadioGroupItem value="both" label="Both Types" />
                         </RadioGroup>
                     </CardContent>
-                </Card>
+                    </Card>
+                </motion.div>
 
-                <Card>
+                {/* Number of Questions */}
+                <motion.div variants={fadeUp}>
+                    <Card className="bg-white dark:bg-gray-800 shadow-lg">
                     <CardHeader>
-                        <CardTitle className='font-bold mb-3'>Number of Questions</CardTitle>
+                        <CardTitle className="font-bold text-blue-600 dark:text-blue-400">
+                        Number of Questions
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <Select
-                            value={numberOfQuestions}
-                            onChange={(e) => setNumberOfQuestions(parseInt(e.target.value))}
+                        value={numberOfQuestions}
+                        onChange={(e) =>
+                            setNumberOfQuestions(parseInt(e.target.value))
+                        }
+                        className="mt-2"
                         >
-                            <option value="" disabled>
-                                Number of Questions
+                        <option value="" disabled>
+                            Select number of questions
+                        </option>
+                        {difficultyOptions.map((option) => (
+                            <option key={option} value={option}>
+                            {option}
                             </option>
-                            {difficultyOptions.map((option) => (
-                                <option key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
+                        ))}
                         </Select>
-                        {/* <Input
-                            type="number"
-                            min="1"
-                            max="50"
-                            value={numberOfQuestions}
-                            onChange={(e) => setNumberOfQuestions(parseInt(e.target.value))}
-                        /> */}
                     </CardContent>
-                </Card>
+                    </Card>
+                </motion.div>
 
-                <Button 
-                    onClick={fetchQuestions} 
-                    disabled={isLoading || selectedCategories.length === 0 || !username.trim()}
-                    className="w-full bg-slate-500 text-white justify-center"
-                >
-                    {isLoading ? (
+                {/* Start Button */}
+                <motion.div variants={fadeUp}>
+                    <Button
+                        onClick={() => {
+                            if (!username.trim()) {
+                                alert("Please enter your username before starting the quiz 😊");
+                                return;
+                            }
+                            if (selectedCategories.length === 0) {
+                                alert("Please select at least one category 🧠");
+                                return;
+                            }
+                            fetchQuestions();
+                        }}
+                        disabled={isLoading}
+                        className={`w-full py-3 bg-black/50 justify-center text-white font-semibold 
+                                    dark:bg-blue-500 dark:hover:bg-blue-400 transition duration-300 ${!username.trim()
+                                    ? 'bg-gray-400 cursor-not-allowed'
+                                    : 'bg-blue-600 hover:bg-black'}
+                                ${isLoading ? 'opacity-75' : ''}`}
+                        >
+                        {isLoading ? (
                         <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Loading Questions...
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Loading Questions...
                         </>
                     ) : (
                         'Start Quiz'
                     )}
-                </Button>
+                    </Button>
+                </motion.div>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 }
