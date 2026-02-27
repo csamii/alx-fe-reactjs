@@ -44,7 +44,7 @@ const AddRecipeForm = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='shadow border-rounded text-md font-sm'>
                 <input
                     type="text"
                     value={title}
