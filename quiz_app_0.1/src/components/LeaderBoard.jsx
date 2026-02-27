@@ -236,96 +236,96 @@ export default function LeaderBoard() {
                         <TableBody>
                             <AnimatePresence>
                                 {entries.map((entry, index) => {
-                                const percentage = getScorePercentage(entry.score, entry.totalQuestions);
-                                
-                                return (
-                                    <motion.tr
-                                    key={`${entry.username}-${entry.date}-${index}`}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: 20 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className={`border-b transition-colors hover:bg-gray-50 ${
-                                        index < 3 ? 'bg-gradient-to-r from-yellow-50 to-orange-50' : ''
-                                    }`}
-                                    >
-                                    <TableCell>
-                                        <div className="flex items-center justify-center">
-                                        {getRankIcon(index)}
-                                        </div>
-                                    </TableCell>
-                                    <TableCell>
-                                        <motion.div 
-                                        className="flex items-center space-x-2"
-                                        whileHover={{ x: 5 }}
-                                        >
-                                        <span className={`font-medium ${
-                                            index === 0 ? 'text-yellow-700' :
-                                            index === 1 ? 'text-gray-600' :
-                                            index === 2 ? 'text-amber-700' :
-                                            'text-gray-800'
-                                        }`}>
-                                            {entry.username}
-                                        </span>
-                                        {index === 0 && (
-                                            <motion.div
-                                            animate={{ rotate: [0, 360] }}
-                                            transition={{ duration: 2, repeat: Infinity }}
-                                            >
-                                            <Crown className="w-4 h-4 text-yellow-500" />
-                                            </motion.div>
-                                        )}
-                                        </motion.div>
-                                    </TableCell>
-                                    <TableCell className="text-center">
-                                        <motion.div 
-                                        className="flex items-center justify-center space-x-1"
-                                        whileHover={{ scale: 1.05 }}
-                                        >
-                                        <Target className="w-4 h-4 text-blue-500" />
-                                        <span className="font-semibold">{entry.score}/{entry.totalQuestions}</span>
-                                        </motion.div>
-                                    </TableCell>
-                                    <TableCell className="text-center">
-                                        <motion.div
-                                        whileHover={{ scale: 1.1 }}
-                                        >
-                                        <Badge 
-                                            variant={getScoreBadgeVariant(percentage)}
-                                            className={`${
-                                            percentage >= 80 ? 'bg-gradient-to-r from-green-500 to-emerald-600' :
-                                            percentage >= 60 ? 'bg-gradient-to-r from-yellow-500 to-orange-600' :
-                                            'bg-gradient-to-r from-red-500 to-pink-600'
-                                            } text-white`}
-                                        >
-                                            🎯 {percentage}%
-                                        </Badge>
-                                        </motion.div>
-                                    </TableCell>
-                                    <TableCell className="text-center">
-                                        {entry.correctionRounds > 0 ? (
-                                        <motion.div 
-                                            className="flex items-center justify-center space-x-1"
-                                            whileHover={{ scale: 1.05 }}
-                                        >
-                                            <RotateCcw className="w-4 h-4 text-orange-500" />
-                                            <span className="font-medium text-orange-600">{entry.correctionRounds}</span>
-                                        </motion.div>
-                                        ) : (
-                                        <span className="text-gray-400">-</span>
-                                        )}
-                                    </TableCell>
-                                    <TableCell className="text-right text-sm text-gray-500">
-                                        <motion.div 
-                                        className="flex items-center justify-end space-x-1"
-                                        whileHover={{ scale: 1.02 }}
-                                        >
-                                        <Calendar className="w-4 h-4" />
-                                        <span>{formatDate(entry.date)}</span>
-                                        </motion.div>
-                                    </TableCell>
-                                    </motion.tr>
-                                );
+                                  const percentage = getScorePercentage(entry.score, entry.totalQuestions);
+                                  
+                                  return (
+                                      <motion.tr
+                                      key={`${entry.username}-${entry.date}-${index}`}
+                                      initial={{ opacity: 0, x: -20 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      exit={{ opacity: 0, x: 20 }}
+                                      transition={{ delay: index * 0.1 }}
+                                      className={`border-b transition-colors hover:bg-gray-50 ${
+                                          index < 3 ? 'bg-gradient-to-r from-yellow-50 to-orange-50' : ''
+                                      }`}
+                                      >
+                                      <TableCell>
+                                          <div className="flex items-center justify-center">
+                                          {getRankIcon(index)}
+                                          </div>
+                                      </TableCell>
+                                      <TableCell>
+                                          <motion.div 
+                                          className="flex items-center space-x-2"
+                                          whileHover={{ x: 5 }}
+                                          >
+                                          <span className={`font-medium ${
+                                              index === 0 ? 'text-yellow-700' :
+                                              index === 1 ? 'text-gray-600' :
+                                              index === 2 ? 'text-amber-700' :
+                                              'text-gray-800'
+                                          }`}>
+                                              {entry.username}
+                                          </span>
+                                          {index === 0 && (
+                                              <motion.div
+                                              animate={{ rotate: [0, 360] }}
+                                              transition={{ duration: 2, repeat: Infinity }}
+                                              >
+                                              <Crown className="w-4 h-4 text-yellow-500" />
+                                              </motion.div>
+                                          )}
+                                          </motion.div>
+                                      </TableCell>
+                                      <TableCell className="text-center">
+                                          <motion.div 
+                                          className="flex items-center justify-center space-x-1"
+                                          whileHover={{ scale: 1.05 }}
+                                          >
+                                          <Target className="w-4 h-4 text-blue-500" />
+                                          <span className="font-semibold">{entry.score}/{entry.totalQuestions}</span>
+                                          </motion.div>
+                                      </TableCell>
+                                      <TableCell className="text-center">
+                                          <motion.div
+                                          whileHover={{ scale: 1.1 }}
+                                          >
+                                          <Badge 
+                                              variant={getScoreBadgeVariant(percentage)}
+                                              className={`${
+                                              percentage >= 80 ? 'bg-gradient-to-r from-green-500 to-emerald-600' :
+                                              percentage >= 60 ? 'bg-gradient-to-r from-yellow-500 to-orange-600' :
+                                              'bg-gradient-to-r from-red-500 to-pink-600'
+                                              } text-white`}
+                                          >
+                                              🎯 {percentage}%
+                                          </Badge>
+                                          </motion.div>
+                                      </TableCell>
+                                      <TableCell className="text-center">
+                                          {entry.correctionRounds > 0 ? (
+                                          <motion.div 
+                                              className="flex items-center justify-center space-x-1"
+                                              whileHover={{ scale: 1.05 }}
+                                          >
+                                              <RotateCcw className="w-4 h-4 text-orange-500" />
+                                              <span className="font-medium text-orange-600">{entry.correctionRounds}</span>
+                                          </motion.div>
+                                          ) : (
+                                          <span className="text-gray-400">-</span>
+                                          )}
+                                      </TableCell>
+                                      <TableCell className="text-right text-sm text-gray-500">
+                                          <motion.div 
+                                          className="flex items-center justify-end space-x-1"
+                                          whileHover={{ scale: 1.02 }}
+                                          >
+                                          <Calendar className="w-4 h-4" />
+                                          <span>{formatDate(entry.date)}</span>
+                                          </motion.div>
+                                      </TableCell>
+                                      </motion.tr>
+                                  );
                                 })}
                             </AnimatePresence>
                         </TableBody>
