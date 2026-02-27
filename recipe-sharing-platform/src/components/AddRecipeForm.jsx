@@ -18,6 +18,29 @@ const AddRecipeForm = () => {
         setDescription('');
     };
 
+    const validateForm = () => {
+        const newErrors = {};
+
+        if (!formData.title.trim()) newErrors.title = "Recipe title is required";
+        if (!formData.summary.trim()) newErrors.summary = "Recipe summary is required";
+        if (!formData.cookTime.trim()) newErrors.cookTime = "Cook time is required";
+        if (!formData.servings.trim()) newErrors.servings = "Number of servings is required";
+        if (!formData.difficulty) newErrors.difficulty = "Difficulty level is required";
+        if (formData.ingredients.filter(ing => ing.trim()).length === 0) {
+        newErrors.ingredients = "At least one ingredient is required";
+        }
+        if (formData.instructions.filter(inst => inst.trim()).length === 0) {
+        newErrors.instructions = "At least one instruction is required";
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    if (validateForm()) {
+        console.log("Success");
+    }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
